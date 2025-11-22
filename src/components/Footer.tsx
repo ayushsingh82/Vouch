@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="w-full border-t-2 border-black bg-white shadow-[6px_-6px_0_0_rgba(0,0,0,1)]">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center">
-          <span className="text-lg font-bold text-black">X402</span>
+          <span className="text-lg font-bold text-black">Vouch</span>
         </div>
         <div className="flex items-center gap-4">
           <a

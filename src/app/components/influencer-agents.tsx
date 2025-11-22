@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAccount } from 'wagmi';
+import { useSearchParams } from 'next/navigation';
 
 interface Influencer {
   id: string;
@@ -44,6 +45,7 @@ interface Insight {
 
 export default function InfluencerAgents() {
   const { isConnected } = useAccount();
+  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedInfluencer, setSelectedInfluencer] = useState<Influencer | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -110,16 +112,14 @@ export default function InfluencerAgents() {
     }
   ];
 
-  const handleSearch = async () => {
-    if (!searchQuery.trim()) return;
-    
+  const handleSearchWithQuery = async (query: string) => {
     setIsAnalyzing(true);
     // Simulate DKG query
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     const found = mockInfluencers.find(
-      inf => inf.handle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-             inf.name.toLowerCase().includes(searchQuery.toLowerCase())
+      inf => inf.handle.toLowerCase().includes(query.toLowerCase()) ||
+             inf.name.toLowerCase().includes(query.toLowerCase())
     );
     
     if (found) {
@@ -127,6 +127,21 @@ export default function InfluencerAgents() {
     }
     
     setIsAnalyzing(false);
+  };
+
+  // Handle URL search params (from trends page)
+  useEffect(() => {
+    const search = searchParams.get('search');
+    if (search) {
+      setSearchQuery(search);
+      handleSearchWithQuery(search);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
+
+  const handleSearch = async () => {
+    if (!searchQuery.trim()) return;
+    await handleSearchWithQuery(searchQuery);
   };
 
   const handleAddNote = async (influencerId: string, note: string) => {

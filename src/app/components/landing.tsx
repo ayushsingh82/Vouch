@@ -5,20 +5,24 @@ import React from 'react';
 
 const faqs = [
   {
-    q: 'What is X402?',
-    a: 'X402 is a next-generation payment protocol built on Polygon, leveraging zero-knowledge cryptography for secure, private, and instant transactions.'
+    q: 'What is Vouch?',
+    a: 'Vouch is a decentralized platform that analyzes social media influencers using AI agents and community-verified notes. Built on DKG (Decentralized Knowledge Graph) for transparent, trustable insights about influencer impact and engagement.'
   },
   {
-    q: 'How does X402 ensure privacy?',
-    a: 'X402 uses advanced zero-knowledge proofs to keep your transaction details private while maintaining security and decentralization.'
+    q: 'How does Vouch ensure trust and transparency?',
+    a: 'Vouch uses the OriginTrail Decentralized Knowledge Graph (DKG) to store verifiable community notes and influencer data. All insights are anchored on-chain with cryptographic proofs, ensuring transparency and preventing manipulation.'
   },
   {
-    q: 'Is my wallet compatible?',
-    a: 'Any EVM-compatible wallet works seamlessly with X402 payment protocol.'
+    q: 'What is personalized data access through X402?',
+    a: 'X402 enables secure, private access to your personalized influencer analytics and social data. Using zero-knowledge cryptography, you can access insights while maintaining complete privacy of your data.'
   },
   {
-    q: 'Is X402 open source?',
-    a: 'Yes! X402 is fully open source and available on GitHub for transparency and community contribution.'
+    q: 'How do Community Notes work?',
+    a: 'Community Notes are verified annotations about influencers created by the community. These notes are published to the DKG, making them transparent, verifiable, and tamper-proof. Users can upvote notes and see their DKG hash for verification.'
+  },
+  {
+    q: 'Is Vouch open source?',
+    a: 'Yes! Vouch is built on open-source technologies including the OriginTrail DKG and is committed to transparency and community contribution.'
   },
 ];
 
@@ -34,11 +38,11 @@ export default function Landing() {
         <div className="flex items-center justify-center">
           <div className="w-full max-w-5xl bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-[50%] flex items-center justify-center py-8 px-8" style={{ aspectRatio: '2/1' }}>
             <div className="text-center">
-              <p className="text-sm font-black mb-8 text-black bg-white border-2 border-black px-3 py-2 rounded-lg inline-block">Experience the Future of</p>
+              <p className="text-sm font-black mb-8 text-black bg-white border-2 border-black px-3 py-2 rounded-lg inline-block">Trust & Transparency for</p>
               <h3 className="text-5xl font-bold font-black text-black italic mb-2">
-                SEAMLESS Payments
+                INFLUENCER Analytics
               </h3>
-              <h2 className="text-5xl font-black mb-2 text-black bg-white border-2 border-black px-3 py-2 rounded-lg inline-block italic">with X402 Protocol</h2>
+              <h2 className="text-5xl font-black mb-2 text-black bg-white border-2 border-black px-3 py-2 rounded-lg inline-block italic">Powered by DKG & AI</h2>
             </div>
           </div>
         </div>
@@ -46,56 +50,55 @@ export default function Landing() {
 
 
       <div className="text-center mb-6 flex flex-col md:flex-row items-center justify-center gap-6">
-      <Link href="/">
-          <button className="bg-white border-2 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] px-8 py-4 rounded-lg text-lg font-bold text-black hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 active:shadow-[2px_2px_0_0_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px]">Join the Waitlist</button>
-        </Link>
-        
-          <Link href="">
-            <button className="bg-white border-2 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] px-8 py-4 rounded-lg text-lg font-bold text-black hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 active:shadow-[2px_2px_0_0_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px]">Launch App</button>
-          </Link>
           <Link href="/agents">
-            <button className="bg-white border-2 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] px-8 py-4 rounded-lg text-lg font-bold text-black hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 active:shadow-[2px_2px_0_0_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px]">AI Agents</button>
+            <button className="bg-white border-2 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] px-8 py-4 rounded-lg text-lg font-bold text-black hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 active:shadow-[2px_2px_0_0_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px]">Analyze Influencers</button>
+          </Link>
+          <Link href="/trends">
+            <button className="bg-white border-2 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] px-8 py-4 rounded-lg text-lg font-bold text-black hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 active:shadow-[2px_2px_0_0_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px]">View Trends</button>
+          </Link>
+          <Link href="/">
+            <button className="bg-white border-2 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] px-8 py-4 rounded-lg text-lg font-bold text-black hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 active:shadow-[2px_2px_0_0_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px]">Access Personalized Data</button>
           </Link>
         </div>
 
       {/* MAIN CONTENT - BENTO GRID */}
       <div className="max-w-5xl mx-auto px-4 pb-20 mt-16">
         <div className="grid grid-cols-12 gap-6 auto-rows-[180px]">
-          {/* Why X402 Protocol */}
+          {/* Why Vouch */}
           <div className="col-span-12 md:col-span-6 row-span-2 bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center">
-            <h2 className="text-xl font-black mb-4 text-white bg-black border-2 border-black px-3 py-2 rounded-lg inline-block">Why X402 Protocol</h2>
-            <p className="text-sm text-black leading-relaxed">X402 revolutionizes digital payments with cutting-edge cryptography and seamless integration. Our protocol ensures your transactions are fast, secure, and truly private—giving you complete control over your financial data.</p>
+            <h2 className="text-xl font-black mb-4 text-white bg-black border-2 border-black px-3 py-2 rounded-lg inline-block">Why Vouch</h2>
+            <p className="text-sm text-black leading-relaxed">Vouch revolutionizes influencer analytics with AI-powered agents and community-verified notes. Built on the Decentralized Knowledge Graph (DKG), we provide transparent, trustable insights about influencer impact, engagement, and authenticity—all verifiable on-chain.</p>
           </div>
-          {/* Powered by Advanced Tech */}
+          {/* Powered by DKG & AI */}
           <div className="col-span-12 md:col-span-6 row-span-2 bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center">
-            <h2 className="text-xl font-black mb-4 text-white bg-black border-2 border-black px-3 py-2 rounded-lg inline-block">Powered by Advanced Tech</h2>
-            <p className="text-sm text-black mb-4 leading-relaxed">Built on Polygon&apos;s robust infrastructure with zero-knowledge proofs:</p>
+            <h2 className="text-xl font-black mb-4 text-white bg-black border-2 border-black px-3 py-2 rounded-lg inline-block">Powered by DKG & AI</h2>
+            <p className="text-sm text-black mb-4 leading-relaxed">Built on OriginTrail&apos;s Decentralized Knowledge Graph with AI agents:</p>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center"><span className="w-2 h-2 rounded-full mr-3 bg-black"></span><span className="text-black font-semibold">Absolute transaction privacy</span></li>
-              <li className="flex items-center"><span className="w-2 h-2 rounded-full mr-3 bg-black"></span><span className="text-black font-semibold">Military-grade cryptographic security</span></li>
-              <li className="flex items-center"><span className="w-2 h-2 rounded-full mr-3 bg-black"></span><span className="text-black font-semibold">Lightning-fast settlements</span></li>
-              <li className="flex items-center"><span className="w-2 h-2 rounded-full mr-3 bg-black"></span><span className="text-black font-semibold">Decentralized, trustless infrastructure</span></li>
+              <li className="flex items-center"><span className="w-2 h-2 rounded-full mr-3 bg-black"></span><span className="text-black font-semibold">Verifiable community notes on DKG</span></li>
+              <li className="flex items-center"><span className="w-2 h-2 rounded-full mr-3 bg-black"></span><span className="text-black font-semibold">AI-powered trend detection & insights</span></li>
+              <li className="flex items-center"><span className="w-2 h-2 rounded-full mr-3 bg-black"></span><span className="text-black font-semibold">Personalized data access via X402</span></li>
+              <li className="flex items-center"><span className="w-2 h-2 rounded-full mr-3 bg-black"></span><span className="text-black font-semibold">Transparent, tamper-proof analytics</span></li>
             </ul>
           </div>
           {/* How It Works */}
           <div className="col-span-12 md:col-span-8 row-span-2 bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center">
             <h2 className="text-xl font-black mb-4 text-white bg-black border-2 border-black px-3 py-2 rounded-lg inline-block">How It Works</h2>
-            <p className="text-sm text-black mb-4 leading-relaxed">Start using X402 in three simple steps:</p>
+            <p className="text-sm text-black mb-4 leading-relaxed">Get started with Vouch in three simple steps:</p>
             <div className="space-y-3">
-              <div className="flex items-start"><span className="text-lg font-extrabold text-black mr-3">1</span><div><div className="font-bold text-black mb-1 text-sm">Connect Wallet</div><div className="text-xs text-black">Link your EVM-compatible wallet securely—your keys, your control, always.</div></div></div>
-              <div className="flex items-start"><span className="text-lg font-extrabold text-black mr-3">2</span><div><div className="font-bold text-black mb-1 text-sm">Enter Payment Details</div><div className="text-xs text-black">Input recipient address and amount—X402 handles the rest with privacy-first technology.</div></div></div>
-              <div className="flex items-start"><span className="text-lg font-extrabold text-black mr-3">3</span><div><div className="font-bold text-black mb-1 text-sm">Send Instantly</div><div className="text-xs text-black">Transaction processed in seconds with zero-knowledge proof verification—private, secure, unstoppable.</div></div></div>
+              <div className="flex items-start"><span className="text-lg font-extrabold text-black mr-3">1</span><div><div className="font-bold text-black mb-1 text-sm">Connect Wallet</div><div className="text-xs text-black">Link your wallet to access personalized influencer analytics and contribute community notes—all verified on DKG.</div></div></div>
+              <div className="flex items-start"><span className="text-lg font-extrabold text-black mr-3">2</span><div><div className="font-bold text-black mb-1 text-sm">Search or Browse Trends</div><div className="text-xs text-black">Analyze any influencer or explore trending profiles across categories. AI agents provide actionable insights powered by DKG data.</div></div></div>
+              <div className="flex items-start"><span className="text-lg font-extrabold text-black mr-3">3</span><div><div className="font-bold text-black mb-1 text-sm">Access Personalized Data</div><div className="text-xs text-black">Use X402 protocol to securely access your personalized analytics and social data with zero-knowledge privacy—your data, your control.</div></div></div>
             </div>
           </div>
-          {/* The Future of Payments */}
+          {/* Community Notes */}
           <div className="col-span-12 md:col-span-4 row-span-1 bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center">
-            <h3 className="text-lg font-black mb-2 text-white bg-black border-2 border-black px-3 py-1 rounded-lg inline-block">The Future of Payments</h3>
-            <p className="text-black text-sm mt-2">X402 is pioneering the next era of blockchain payments with privacy-preserving technology and instant settlements on Polygon.</p>
+            <h3 className="text-lg font-black mb-2 text-white bg-black border-2 border-black px-3 py-1 rounded-lg inline-block">Community Notes</h3>
+            <p className="text-black text-sm mt-2">Verified annotations about influencers created by the community, published to DKG for transparency and trust. Every note is cryptographically verifiable.</p>
           </div>
-          {/* Enterprise-Grade Security */}
+          {/* Personalized Data Access */}
           <div className="col-span-12 md:col-span-4 row-span-1 bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center">
-            <h4 className="text-lg font-bold text-white bg-black border-2 border-black px-3 py-1 rounded-lg inline-block">Enterprise-Grade Security</h4>
-            <p className="text-black text-sm mt-2">Zero-knowledge cryptography ensures complete transaction privacy while maintaining full security and auditability.</p>
+            <h4 className="text-lg font-bold text-white bg-black border-2 border-black px-3 py-1 rounded-lg inline-block">X402 Data Access</h4>
+            <p className="text-black text-sm mt-2">Access your personalized influencer analytics and social data securely through X402 protocol with zero-knowledge privacy protection.</p>
           </div>
         </div>
 
