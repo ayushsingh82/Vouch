@@ -180,7 +180,7 @@ export default function TrendsPage() {
     <div className="min-h-screen bg-white font-sans tracking-tight">
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Header Section */}
-        <div className="bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8 mb-8">
+        <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8 mb-8" style={{ backgroundColor: '#FFD1B3' }}>
           <h1 className="text-4xl font-black text-black mb-4">
             🔥 Trending Influencers
           </h1>
@@ -197,11 +197,14 @@ export default function TrendsPage() {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`bg-white border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] px-6 py-3 rounded-lg text-sm font-bold transition-all duration-200 ${
+                  className={`border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] px-6 py-3 rounded-lg text-sm font-bold transition-all duration-200 ${
                     selectedCategory === category.id
-                      ? 'bg-black text-white shadow-[2px_2px_0_0_rgba(0,0,0,1)] translate-x-[2px] translate-y-[2px]'
+                      ? 'text-white shadow-[2px_2px_0_0_rgba(0,0,0,1)] translate-x-[2px] translate-y-[2px]'
                       : 'text-black hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]'
                   }`}
+                  style={{
+                    backgroundColor: selectedCategory === category.id ? '#FF6E1A' : '#B2DBAF'
+                  }}
                 >
                   <span className="mr-2">{category.icon}</span>
                   {category.name}
@@ -226,7 +229,7 @@ export default function TrendsPage() {
         </div>
 
         {/* Results Count */}
-        <div className="mb-6">
+        <div className="mb-6 border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] rounded-lg p-4 inline-block" style={{ backgroundColor: '#69A3E1' }}>
           <p className="text-black font-bold">
             Showing {sortedInfluencers.length} trending influencer{sortedInfluencers.length !== 1 ? 's' : ''}
             {selectedCategory !== 'all' && ` in ${categories.find(c => c.id === selectedCategory)?.name}`}
@@ -255,7 +258,7 @@ export default function TrendsPage() {
                   <p className="text-black mb-3">{influencer.handle}</p>
                   
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-black text-white px-3 py-1 rounded-lg text-xs font-bold">
+                    <span className="text-white px-3 py-1 rounded-lg text-xs font-bold border-2 border-black" style={{ backgroundColor: '#FF6E1A' }}>
                       {categories.find(c => c.id === influencer.category)?.icon} {categories.find(c => c.id === influencer.category)?.name}
                     </span>
                   </div>
@@ -278,13 +281,13 @@ export default function TrendsPage() {
 
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4 mb-4">
-                <div className="bg-gray-100 border-2 border-black rounded-lg p-3">
+                <div className="border-2 border-black rounded-lg p-3" style={{ backgroundColor: '#FAE88A' }}>
                   <p className="text-xs text-black opacity-70 mb-1">Followers</p>
                   <p className="text-lg font-black text-black">
                     {(influencer.followers / 1000).toFixed(0)}K
                   </p>
                 </div>
-                <div className="bg-gray-100 border-2 border-black rounded-lg p-3">
+                <div className="border-2 border-black rounded-lg p-3" style={{ backgroundColor: '#FAE88A' }}>
                   <p className="text-xs text-black opacity-70 mb-1">Engagement</p>
                   <p className="text-lg font-black text-black">{influencer.engagementRate}%</p>
                 </div>

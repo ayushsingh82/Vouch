@@ -155,7 +155,7 @@ export default function InfluencerAgents() {
     <div className="min-h-screen bg-white font-sans tracking-tight">
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Header Section */}
-        <div className="bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8 mb-8">
+        <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8 mb-8" style={{ backgroundColor: '#B2DBAF' }}>
           <h1 className="text-4xl font-black text-black mb-4">
             Social & Influencer AI Agents
           </h1>
@@ -222,10 +222,10 @@ export default function InfluencerAgents() {
             </div>
 
             {/* Community Notes Section */}
-            <div className="bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8">
+            <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8" style={{ backgroundColor: '#F67979' }}>
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-black text-black">Community Notes</h3>
-                <span className="bg-black text-white px-4 py-2 rounded-lg text-sm font-bold">
+                <span className="text-white px-4 py-2 rounded-lg text-sm font-bold border-2 border-black" style={{ backgroundColor: '#FF6E1A' }}>
                   {selectedInfluencer.communityNotes.length} Notes
                 </span>
               </div>
@@ -295,7 +295,7 @@ export default function InfluencerAgents() {
             </div>
 
             {/* AI Insights Section */}
-            <div className="bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8">
+            <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8" style={{ backgroundColor: '#FFD1B3' }}>
               <h3 className="text-2xl font-black text-black mb-6">AI-Generated Insights</h3>
               <div className="space-y-4">
                 {selectedInfluencer.insights.map((insight, index) => (

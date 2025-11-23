@@ -38,11 +38,11 @@ export default function Landing() {
         <div className="flex items-center justify-center">
           <div className="w-full max-w-5xl bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-[50%] flex items-center justify-center py-8 px-8" style={{ aspectRatio: '2/1' }}>
             <div className="text-center">
-              <p className="text-sm font-black mb-8 text-black bg-white border-2 border-black px-3 py-2 rounded-lg inline-block">Trust & Transparency for</p>
+              <p className="text-sm font-black mb-8 text-black border-2 border-black px-3 py-2 rounded-lg inline-block" style={{ backgroundColor: '#FFEF00' }}>Trust & Transparency for</p>
               <h3 className="text-5xl font-bold font-black text-black italic mb-2">
                 INFLUENCER Analytics
               </h3>
-              <h2 className="text-5xl font-black mb-2 text-black bg-white border-2 border-black px-3 py-2 rounded-lg inline-block italic">Powered by DKG & AI</h2>
+              <h2 className="text-5xl font-black mb-2 text-black border-2 border-black px-3 py-2 rounded-lg inline-block italic" style={{ backgroundColor: '#FFEF00' }}>Powered by DKG & AI</h2>
             </div>
           </div>
         </div>
@@ -65,13 +65,13 @@ export default function Landing() {
       <div className="max-w-5xl mx-auto px-4 pb-20 mt-16">
         <div className="grid grid-cols-12 gap-6 auto-rows-[180px]">
           {/* Why Vouch */}
-          <div className="col-span-12 md:col-span-6 row-span-2 bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center">
-            <h2 className="text-xl font-black mb-4 text-white bg-black border-2 border-black px-3 py-2 rounded-lg inline-block">Why Vouch</h2>
+          <div className="col-span-12 md:col-span-6 row-span-2 border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center" style={{ backgroundColor: '#FFD1B3' }}>
+            <h2 className="text-xl font-black mb-4 text-white border-2 border-black px-3 py-2 rounded-lg inline-block" style={{ backgroundColor: '#FF6E1A' }}>Why Vouch</h2>
             <p className="text-sm text-black leading-relaxed">Vouch revolutionizes influencer analytics with AI-powered agents and community-verified notes. Built on the Decentralized Knowledge Graph (DKG), we provide transparent, trustable insights about influencer impact, engagement, and authenticity—all verifiable on-chain.</p>
           </div>
           {/* Powered by DKG & AI */}
-          <div className="col-span-12 md:col-span-6 row-span-2 bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center">
-            <h2 className="text-xl font-black mb-4 text-white bg-black border-2 border-black px-3 py-2 rounded-lg inline-block">Powered by DKG & AI</h2>
+          <div className="col-span-12 md:col-span-6 row-span-2 border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center" style={{ backgroundColor: '#B2DBAF' }}>
+            <h2 className="text-xl font-black mb-4 text-white border-2 border-black px-3 py-2 rounded-lg inline-block" style={{ backgroundColor: '#F67979' }}>Powered by DKG & AI</h2>
             <p className="text-sm text-black mb-4 leading-relaxed">Built on OriginTrail&apos;s Decentralized Knowledge Graph with AI agents:</p>
             <ul className="space-y-2 text-sm">
               <li className="flex items-center"><span className="w-2 h-2 rounded-full mr-3 bg-black"></span><span className="text-black font-semibold">Verifiable community notes on DKG</span></li>
@@ -81,8 +81,8 @@ export default function Landing() {
             </ul>
           </div>
           {/* How It Works */}
-          <div className="col-span-12 md:col-span-8 row-span-2 bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center">
-            <h2 className="text-xl font-black mb-4 text-white bg-black border-2 border-black px-3 py-2 rounded-lg inline-block">How It Works</h2>
+          <div className="col-span-12 md:col-span-8 row-span-2 border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center" style={{ backgroundColor: '#FFD1B3' }}>
+            <h2 className="text-xl font-black mb-4 text-white border-2 border-black px-3 py-2 rounded-lg inline-block" style={{ backgroundColor: '#FF6E1A' }}>How It Works</h2>
             <p className="text-sm text-black mb-4 leading-relaxed">Get started with Vouch in three simple steps:</p>
             <div className="space-y-3">
               <div className="flex items-start"><span className="text-lg font-extrabold text-black mr-3">1</span><div><div className="font-bold text-black mb-1 text-sm">Connect Wallet</div><div className="text-xs text-black">Link your wallet to access personalized influencer analytics and contribute community notes—all verified on DKG.</div></div></div>
@@ -91,13 +91,13 @@ export default function Landing() {
             </div>
           </div>
           {/* Community Notes */}
-          <div className="col-span-12 md:col-span-4 row-span-1 bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center">
-            <h3 className="text-lg font-black mb-2 text-white bg-black border-2 border-black px-3 py-1 rounded-lg inline-block">Community Notes</h3>
+          <div className="col-span-12 md:col-span-4 row-span-1 border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center" style={{ backgroundColor: '#F67979' }}>
+            <h3 className="text-lg font-black mb-2 text-white border-2 border-black px-3 py-1 rounded-lg inline-block" style={{ backgroundColor: '#FF6E1A' }}>Community Notes</h3>
             <p className="text-black text-sm mt-2">Verified annotations about influencers created by the community, published to DKG for transparency and trust. Every note is cryptographically verifiable.</p>
           </div>
           {/* Personalized Data Access */}
-          <div className="col-span-12 md:col-span-4 row-span-1 bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center">
-            <h4 className="text-lg font-bold text-white bg-black border-2 border-black px-3 py-1 rounded-lg inline-block">X402 Data Access</h4>
+          <div className="col-span-12 md:col-span-4 row-span-1 border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-8 rounded-2xl flex flex-col justify-center" style={{ backgroundColor: '#B2DBAF' }}>
+            <h4 className="text-lg font-bold text-white border-2 border-black px-3 py-1 rounded-lg inline-block" style={{ backgroundColor: '#F67979' }}>X402 Data Access</h4>
             <p className="text-black text-sm mt-2">Access your personalized influencer analytics and social data securely through X402 protocol with zero-knowledge privacy protection.</p>
           </div>
         </div>
