@@ -155,7 +155,7 @@ export default function InfluencerAgents() {
     <div className="min-h-screen bg-white font-sans tracking-tight">
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Header Section */}
-        <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8 mb-8" style={{ backgroundColor: '#B2DBAF' }}>
+        <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8 mb-8" style={{ backgroundColor: '#FFD1B3' }}>
           <h1 className="text-4xl font-black text-black mb-4">
             Social & Influencer AI Agents
           </h1>
@@ -173,12 +173,14 @@ export default function InfluencerAgents() {
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
               placeholder="Search influencer by handle or name (e.g., @alexcrypto)"
-              className="flex-1 bg-white border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] px-6 py-3 rounded-lg text-black font-medium focus:outline-none focus:shadow-[2px_2px_0_0_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px] transition-all"
+              className="flex-1 border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] px-6 py-3 rounded-lg text-black font-medium focus:outline-none focus:shadow-[2px_2px_0_0_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px] transition-all"
+              style={{ backgroundColor: '#B2DBAF' }}
             />
             <button
               onClick={handleSearch}
               disabled={isAnalyzing}
-              className="bg-white border-2 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] px-8 py-3 rounded-lg text-lg font-bold text-black hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="border-2 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] px-8 py-3 rounded-lg text-lg font-bold text-white hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ backgroundColor: '#FF6E1A' }}
             >
               {isAnalyzing ? 'Analyzing...' : 'Analyze'}
             </button>
@@ -189,13 +191,13 @@ export default function InfluencerAgents() {
         {selectedInfluencer ? (
           <div className="space-y-6">
             {/* Influencer Profile Card */}
-            <div className="bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8">
+            <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8" style={{ backgroundColor: '#FFD1B3' }}>
               <div className="flex items-start justify-between mb-6">
                 <div>
                   <div className="flex items-center gap-3 mb-2">
                     <h2 className="text-3xl font-black text-black">{selectedInfluencer.name}</h2>
                     {selectedInfluencer.verified && (
-                      <span className="bg-black text-white px-3 py-1 rounded-lg text-sm font-bold">
+                      <span className="text-white border-2 border-black px-3 py-1 rounded-lg text-sm font-bold" style={{ backgroundColor: '#FF6E1A' }}>
                         ✓ Verified
                       </span>
                     )}
@@ -222,10 +224,10 @@ export default function InfluencerAgents() {
             </div>
 
             {/* Community Notes Section */}
-            <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8" style={{ backgroundColor: '#F67979' }}>
+            <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8" style={{ backgroundColor: '#B2DBAF' }}>
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-2xl font-black text-black">Community Notes</h3>
-                <span className="text-white px-4 py-2 rounded-lg text-sm font-bold border-2 border-black" style={{ backgroundColor: '#FF6E1A' }}>
+                <h3 className="text-2xl font-black text-white border-2 border-black px-3 py-2 rounded-lg inline-block" style={{ backgroundColor: '#F67979' }}>Community Notes</h3>
+                <span className="text-white border-2 border-black px-4 py-2 rounded-lg text-sm font-bold" style={{ backgroundColor: '#F67979' }}>
                   {selectedInfluencer.communityNotes.length} Notes
                 </span>
               </div>
@@ -234,7 +236,8 @@ export default function InfluencerAgents() {
                 {selectedInfluencer.communityNotes.map((note) => (
                   <div
                     key={note.id}
-                    className="bg-white border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] rounded-lg p-6"
+                    className="border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] rounded-lg p-6"
+                    style={{ backgroundColor: '#FFD1B3' }}
                   >
                     <div className="flex items-start justify-between mb-3">
                       <div>
@@ -274,13 +277,14 @@ export default function InfluencerAgents() {
             </div>
 
             {/* Trends Section */}
-            <div className="bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8">
-              <h3 className="text-2xl font-black text-black mb-6">Trend Analysis</h3>
+            <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8" style={{ backgroundColor: '#FFD1B3' }}>
+              <h3 className="text-2xl font-black text-white border-2 border-black px-3 py-2 rounded-lg inline-block mb-6" style={{ backgroundColor: '#FF6E1A' }}>Trend Analysis</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {selectedInfluencer.trends.map((trend, index) => (
                   <div
                     key={index}
-                    className="bg-white border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] rounded-lg p-6"
+                    className="border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] rounded-lg p-6"
+                    style={{ backgroundColor: '#B2DBAF' }}
                   >
                     <p className="text-sm text-black opacity-70 mb-2">{trend.metric}</p>
                     <div className="flex items-center gap-2 mb-2">
@@ -295,18 +299,19 @@ export default function InfluencerAgents() {
             </div>
 
             {/* AI Insights Section */}
-            <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8" style={{ backgroundColor: '#FFD1B3' }}>
-              <h3 className="text-2xl font-black text-black mb-6">AI-Generated Insights</h3>
+            <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8" style={{ backgroundColor: '#B2DBAF' }}>
+              <h3 className="text-2xl font-black text-white border-2 border-black px-3 py-2 rounded-lg inline-block mb-6" style={{ backgroundColor: '#F67979' }}>AI-Generated Insights</h3>
               <div className="space-y-4">
                 {selectedInfluencer.insights.map((insight, index) => (
                   <div
                     key={index}
-                    className="bg-white border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] rounded-lg p-6"
+                    className="border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] rounded-lg p-6"
+                    style={{ backgroundColor: '#FFD1B3' }}
                   >
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="bg-black text-white px-3 py-1 rounded-lg text-xs font-bold">
+                          <span className="text-white border-2 border-black px-3 py-1 rounded-lg text-xs font-bold" style={{ backgroundColor: '#FF6E1A' }}>
                             {insight.type.toUpperCase()}
                           </span>
                           <span className="text-sm text-black opacity-70">
@@ -315,7 +320,7 @@ export default function InfluencerAgents() {
                         </div>
                         <h4 className="text-xl font-black text-black mb-2">{insight.title}</h4>
                         <p className="text-black mb-3">{insight.description}</p>
-                        <div className="bg-gray-100 border-2 border-black rounded-lg p-4">
+                        <div className="border-2 border-black rounded-lg p-4" style={{ backgroundColor: '#B2DBAF' }}>
                           <p className="text-sm font-bold text-black mb-1">💡 Actionable:</p>
                           <p className="text-black">{insight.actionable}</p>
                         </div>
@@ -327,7 +332,7 @@ export default function InfluencerAgents() {
             </div>
           </div>
         ) : (
-          <div className="bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-12 text-center">
+          <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-12 text-center" style={{ backgroundColor: '#FFD1B3' }}>
             <p className="text-xl text-black mb-4">
               Search for an influencer to analyze their impact and engagement
             </p>
@@ -362,12 +367,14 @@ function AddNoteForm({ influencerId, onAddNote }: { influencerId: string; onAddN
         value={note}
         onChange={(e) => setNote(e.target.value)}
         placeholder="Share your insights about this influencer. This will be published to DKG for transparency and verification."
-        className="w-full bg-white border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] px-4 py-3 rounded-lg text-black font-medium focus:outline-none focus:shadow-[2px_2px_0_0_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px] transition-all mb-4 min-h-[100px]"
+        className="w-full border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] px-4 py-3 rounded-lg text-black font-medium focus:outline-none focus:shadow-[2px_2px_0_0_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px] transition-all mb-4 min-h-[100px]"
+        style={{ backgroundColor: '#B2DBAF' }}
       />
       <button
         type="submit"
         disabled={!note.trim() || isSubmitting}
-        className="bg-white border-2 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] px-6 py-3 rounded-lg text-lg font-bold text-black hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="border-2 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] px-6 py-3 rounded-lg text-lg font-bold text-white hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+        style={{ backgroundColor: '#FF6E1A' }}
       >
         {isSubmitting ? 'Publishing to DKG...' : 'Publish to DKG'}
       </button>

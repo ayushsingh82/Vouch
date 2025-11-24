@@ -1,33 +1,20 @@
-import TwitterIcon from './icons/TwitterIcon';
-import TelegramIcon from './icons/TelegramIcon';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t-2 border-black bg-white shadow-[6px_-6px_0_0_rgba(0,0,0,1)]">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center">
-          <span className="text-lg font-bold text-black">Vouch</span>
+    <footer className="bg-white border-t-2 border-black shadow-[0_-4px_0_0_rgba(0,0,0,1)] mt-auto">
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 className="text-xl font-black text-black mb-4 italic">X402</h3>
+            
+          </div>
+          
+          
+        
         </div>
-        <div className="flex items-center gap-4">
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] p-3 rounded-lg hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200"
-            aria-label="Twitter"
-          >
-            <TwitterIcon className="w-6 h-6 text-black" />
-          </a>
-          <a
-            href="https://telegram.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] p-3 rounded-lg hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200"
-            aria-label="Telegram"
-          >
-            <TelegramIcon className="w-6 h-6 text-black" />
-          </a>
-        </div>
+        
+
       </div>
     </footer>
   );

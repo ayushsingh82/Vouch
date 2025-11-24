@@ -191,7 +191,7 @@ export default function TrendsPage() {
 
           {/* Categories */}
           <div className="mb-6">
-            <h3 className="text-xl font-black text-black mb-4">Categories</h3>
+            <h3 className="text-xl font-black text-white border-2 border-black px-3 py-2 rounded-lg inline-block mb-4" style={{ backgroundColor: '#FF6E1A' }}>Categories</h3>
             <div className="flex flex-wrap gap-3">
               {categories.map((category) => (
                 <button
@@ -202,9 +202,7 @@ export default function TrendsPage() {
                       ? 'text-white shadow-[2px_2px_0_0_rgba(0,0,0,1)] translate-x-[2px] translate-y-[2px]'
                       : 'text-black hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]'
                   }`}
-                  style={{
-                    backgroundColor: selectedCategory === category.id ? '#FF6E1A' : '#B2DBAF'
-                  }}
+                  style={{ backgroundColor: selectedCategory === category.id ? '#FF6E1A' : '#B2DBAF' }}
                 >
                   <span className="mr-2">{category.icon}</span>
                   {category.name}
@@ -219,7 +217,8 @@ export default function TrendsPage() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="bg-white border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] px-4 py-2 rounded-lg text-black font-medium focus:outline-none focus:shadow-[2px_2px_0_0_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px] transition-all"
+              className="border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] px-4 py-2 rounded-lg text-black font-medium focus:outline-none focus:shadow-[2px_2px_0_0_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px] transition-all"
+              style={{ backgroundColor: '#B2DBAF' }}
             >
               <option value="trendScore">Trend Score</option>
               <option value="change">Growth Rate</option>
@@ -229,7 +228,7 @@ export default function TrendsPage() {
         </div>
 
         {/* Results Count */}
-        <div className="mb-6 border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] rounded-lg p-4 inline-block" style={{ backgroundColor: '#69A3E1' }}>
+        <div className="mb-6">
           <p className="text-black font-bold">
             Showing {sortedInfluencers.length} trending influencer{sortedInfluencers.length !== 1 ? 's' : ''}
             {selectedCategory !== 'all' && ` in ${categories.find(c => c.id === selectedCategory)?.name}`}
@@ -238,7 +237,7 @@ export default function TrendsPage() {
 
         {/* Trending Influencers Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sortedInfluencers.map((influencer) => (
+          {sortedInfluencers.map((influencer, index) => (
             <Link
               key={influencer.id}
               href={`/agents?search=${encodeURIComponent(influencer.handle)}`}
@@ -250,7 +249,7 @@ export default function TrendsPage() {
                     <span className="text-2xl">{getPlatformIcon(influencer.platform)}</span>
                     <h3 className="text-xl font-black text-black">{influencer.name}</h3>
                     {influencer.verified && (
-                      <span className="bg-black text-white px-2 py-1 rounded text-xs font-bold">
+                      <span className="text-white border-2 border-black px-2 py-1 rounded text-xs font-bold" style={{ backgroundColor: '#FF6E1A' }}>
                         ✓
                       </span>
                     )}
@@ -258,7 +257,7 @@ export default function TrendsPage() {
                   <p className="text-black mb-3">{influencer.handle}</p>
                   
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-white px-3 py-1 rounded-lg text-xs font-bold border-2 border-black" style={{ backgroundColor: '#FF6E1A' }}>
+                    <span className="text-white border-2 border-black px-3 py-1 rounded-lg text-xs font-bold" style={{ backgroundColor: '#FF6E1A' }}>
                       {categories.find(c => c.id === influencer.category)?.icon} {categories.find(c => c.id === influencer.category)?.name}
                     </span>
                   </div>
@@ -271,23 +270,23 @@ export default function TrendsPage() {
                   <span className="text-sm text-black opacity-70">Trend Score</span>
                   <span className="text-2xl font-black text-black">{influencer.trendScore}</span>
                 </div>
-                <div className="w-full bg-gray-200 border-2 border-black rounded-full h-3">
+                <div className="w-full border-2 border-black rounded-full h-3" style={{ backgroundColor: '#B2DBAF' }}>
                   <div
-                    className="bg-black h-full rounded-full transition-all"
-                    style={{ width: `${influencer.trendScore}%` }}
+                    className="h-full rounded-full transition-all"
+                    style={{ width: `${influencer.trendScore}%`, backgroundColor: '#FF6E1A' }}
                   />
                 </div>
               </div>
 
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4 mb-4">
-                <div className="border-2 border-black rounded-lg p-3" style={{ backgroundColor: '#FAE88A' }}>
+                <div className="border-2 border-black rounded-lg p-3" style={{ backgroundColor: '#FFD1B3' }}>
                   <p className="text-xs text-black opacity-70 mb-1">Followers</p>
                   <p className="text-lg font-black text-black">
                     {(influencer.followers / 1000).toFixed(0)}K
                   </p>
                 </div>
-                <div className="border-2 border-black rounded-lg p-3" style={{ backgroundColor: '#FAE88A' }}>
+                <div className="border-2 border-black rounded-lg p-3" style={{ backgroundColor: '#B2DBAF' }}>
                   <p className="text-xs text-black opacity-70 mb-1">Engagement</p>
                   <p className="text-lg font-black text-black">{influencer.engagementRate}%</p>
                 </div>
@@ -308,7 +307,7 @@ export default function TrendsPage() {
 
         {/* Empty State */}
         {sortedInfluencers.length === 0 && (
-          <div className="bg-white border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-12 text-center">
+          <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-12 text-center" style={{ backgroundColor: '#FFD1B3' }}>
             <p className="text-xl text-black">
               No trending influencers found in this category.
             </p>

@@ -8,7 +8,7 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
 import {
-  baseSepolia,
+  baseSepolia
 } from 'wagmi/chains';
 import {
   QueryClientProvider,
@@ -16,7 +16,7 @@ import {
 } from '@tanstack/react-query';
 
 const config = getDefaultConfig({
-  appName: 'DKG Agent',
+  appName: 'X402',
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || 'YOUR_PROJECT_ID',
   chains: [baseSepolia],
   ssr: true,
