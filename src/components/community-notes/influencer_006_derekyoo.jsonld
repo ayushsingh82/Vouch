@@ -7,42 +7,47 @@
   },
   "@graph": [
     {
-      "@id": "urn:uuid:vouch-note-defimaster-001",
+      "@id": "urn:uuid:vouch-note-derekyoo-001",
       "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
       
       "schema:about": {
-        "@id": "https://twitter.com/defimaster",
+        "@id": "https://twitter.com/derekyoo",
         "@type": ["schema:Person", "foaf:Person"]
       },
       
       "schema:identifier": {
         "@type": "schema:PropertyValue",
         "schema:propertyID": "influencerId",
-        "schema:value": "defimaster"
+        "schema:value": "derekyoo"
       },
       
-      "schema:name": "DeFi Master - Community Note",
-      "schema:text": "Expert DeFi content creator with high engagement rates and strong community trust. Verified authentic with deep technical knowledge in decentralized finance.",
+      "schema:name": "Derek Yoo - Community Note",
+      "schema:text": "Founder of Moonbeam Network, a Polkadot parachain focused on Ethereum compatibility. Key figure in bridging Ethereum and Polkadot ecosystems. Verified authentic with strong technical and strategic leadership in the parachain space.",
       
-      "schema:claimReviewed": "DeFi Master provides accurate and valuable DeFi information",
+      "schema:claimReviewed": "Derek Yoo is the legitimate founder of Moonbeam Network",
       "schema:reviewRating": {
         "@type": "schema:Rating",
         "schema:ratingValue": "true",
         "schema:bestRating": "true",
         "schema:worstRating": "false",
-        "schema:description": "Verified expert in DeFi"
+        "schema:description": "Verified founder of Moonbeam"
       },
       
       "ot:influencerProfile": {
         "@type": "schema:Person",
-        "schema:name": "DeFi Master",
-        "schema:alternateName": "@defimaster",
+        "schema:name": "Derek Yoo",
+        "schema:alternateName": "@derekyoo",
+        "schema:jobTitle": "Founder of Moonbeam",
         "schema:identifier": {
           "@type": "schema:PropertyValue",
           "schema:propertyID": "platform",
           "schema:value": "twitter"
         },
-        "schema:url": "https://twitter.com/defimaster"
+        "schema:url": "https://twitter.com/derekyoo",
+        "schema:worksFor": {
+          "@type": "schema:Organization",
+          "schema:name": "Moonbeam Network"
+        }
       },
       
       "ot:metrics": {
@@ -54,50 +59,54 @@
             "schema:userInteractionCount": 95000
           }
         ],
-        "ot:engagementRate": 9.5,
-        "ot:trendScore": 93,
-        "ot:growthRate": 25.3,
+        "ot:engagementRate": 7.5,
+        "ot:trendScore": 89,
+        "ot:growthRate": 18.2,
         "ot:category": "crypto",
-        "ot:verified": true
+        "ot:verified": true,
+        "ot:expertiseLevel": "founder",
+        "ot:ecosystem": "Moonbeam"
       },
       
       "ot:aiInsights": {
         "@type": "ot:AIInsight",
-        "ot:authenticityScore": 94,
+        "ot:authenticityScore": 95,
         "ot:botActivityLikelihood": 3,
         "ot:audienceCredibility": 90,
-        "ot:growthTrend": "rapid",
-        "ot:expertiseLevel": "high",
-        "ot:contentAccuracy": 92,
-        "schema:description": "Expert DeFi influencer with rapid growth and high content accuracy"
+        "ot:growthTrend": "steady",
+        "ot:contentQuality": "high",
+        "ot:technicalExpertise": "founder-level",
+        "ot:influenceLevel": "parachain-leader",
+        "schema:description": "Verified founder with strong leadership in Ethereum-Polkadot bridge development"
       },
       
       "ot:communityFeedback": {
         "@type": "ot:CommunityFeedback",
-        "ot:trustScore": 93,
-        "ot:upvotes": 78,
+        "ot:trustScore": 95,
+        "ot:upvotes": 245,
         "ot:verifiedNotes": [
           {
             "@type": "ot:CommunityNote",
-            "schema:text": "Verified DeFi expert with accurate technical analysis",
+            "schema:text": "Verified founder of Moonbeam Network. Key figure in Ethereum compatibility on Polkadot.",
             "ot:verified": true,
-            "ot:upvotes": 78
+            "ot:upvotes": 245
           }
         ]
       },
       
       "schema:evidence": [
-        "https://guardian.example/analysis/defimaster-001"
+        "https://moonbeam.network/",
+        "https://moonbeam.foundation/"
       ],
       
-      "prov:generatedAtTime": "2025-01-18T11:20:00Z",
+      "prov:generatedAtTime": "2025-01-25T12:10:00Z",
       "prov:wasAttributedTo": {
         "@id": "did:vouch:ai-agent-001",
         "@type": "prov:Agent",
         "schema:name": "Vouch AI Agent"
       },
       "prov:specializationOf": {
-        "@id": "https://twitter.com/defimaster"
+        "@id": "https://twitter.com/derekyoo"
       }
     }
   ]

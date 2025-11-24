@@ -1,0 +1,114 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "ot": "https://schema.origintrail.io/"
+  },
+  "@graph": [
+    {
+      "@id": "urn:uuid:vouch-note-peterczaban-001",
+      "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
+      
+      "schema:about": {
+        "@id": "https://web3.foundation/team",
+        "@type": ["schema:Person", "foaf:Person"]
+      },
+      
+      "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:propertyID": "influencerId",
+        "schema:value": "peterczaban"
+      },
+      
+      "schema:name": "Peter Czaban - Community Note",
+      "schema:text": "Co-Founder of Polkadot and Web3 Foundation. Key contributor to Polkadot's technical architecture and governance. Verified authentic with significant contributions to the Polkadot ecosystem development.",
+      
+      "schema:claimReviewed": "Peter Czaban is a legitimate co-founder of Polkadot and Web3 Foundation",
+      "schema:reviewRating": {
+        "@type": "schema:Rating",
+        "schema:ratingValue": "true",
+        "schema:bestRating": "true",
+        "schema:worstRating": "false",
+        "schema:description": "Verified co-founder"
+      },
+      
+      "ot:influencerProfile": {
+        "@type": "schema:Person",
+        "schema:name": "Peter Czaban",
+        "schema:alternateName": "Peter Czaban",
+        "schema:jobTitle": "Co-Founder of Polkadot, Web3 Foundation",
+        "schema:identifier": {
+          "@type": "schema:PropertyValue",
+          "schema:propertyID": "platform",
+          "schema:value": "web3"
+        },
+        "schema:url": "https://web3.foundation/team",
+        "schema:worksFor": {
+          "@type": "schema:Organization",
+          "schema:name": "Web3 Foundation"
+        }
+      },
+      
+      "ot:metrics": {
+        "@type": "ot:InfluencerMetrics",
+        "schema:interactionStatistic": [
+          {
+            "@type": "schema:InteractionCounter",
+            "schema:interactionType": {"@type": "schema:FollowAction"},
+            "schema:userInteractionCount": 60000
+          }
+        ],
+        "ot:engagementRate": 6.8,
+        "ot:trendScore": 92,
+        "ot:growthRate": 10.3,
+        "ot:category": "crypto",
+        "ot:verified": true,
+        "ot:expertiseLevel": "founder",
+        "ot:ecosystem": "Polkadot"
+      },
+      
+      "ot:aiInsights": {
+        "@type": "ot:AIInsight",
+        "ot:authenticityScore": 97,
+        "ot:botActivityLikelihood": 2,
+        "ot:audienceCredibility": 93,
+        "ot:growthTrend": "steady",
+        "ot:contentQuality": "high",
+        "ot:technicalExpertise": "founder-level",
+        "ot:influenceLevel": "ecosystem-leader",
+        "schema:description": "Verified co-founder with significant contributions to Polkadot architecture"
+      },
+      
+      "ot:communityFeedback": {
+        "@type": "ot:CommunityFeedback",
+        "ot:trustScore": 97,
+        "ot:upvotes": 280,
+        "ot:verifiedNotes": [
+          {
+            "@type": "ot:CommunityNote",
+            "schema:text": "Verified co-founder of Polkadot and Web3 Foundation. Key contributor to technical architecture.",
+            "ot:verified": true,
+            "ot:upvotes": 280
+          }
+        ]
+      },
+      
+      "schema:evidence": [
+        "https://web3.foundation/",
+        "https://polkadot.network/about"
+      ],
+      
+      "prov:generatedAtTime": "2025-01-25T12:20:00Z",
+      "prov:wasAttributedTo": {
+        "@id": "did:vouch:ai-agent-001",
+        "@type": "prov:Agent",
+        "schema:name": "Vouch AI Agent"
+      },
+      "prov:specializationOf": {
+        "@id": "https://web3.foundation/team"
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,114 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "ot": "https://schema.origintrail.io/"
+  },
+  "@graph": [
+    {
+      "@id": "urn:uuid:vouch-note-gavinwood-001",
+      "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
+      
+      "schema:about": {
+        "@id": "https://twitter.com/gavofyork",
+        "@type": ["schema:Person", "foaf:Person"]
+      },
+      
+      "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:propertyID": "influencerId",
+        "schema:value": "gavofyork"
+      },
+      
+      "schema:name": "Gavin Wood - Community Note",
+      "schema:text": "Co-Founder of Polkadot and Parity Technologies. Creator of Ethereum's Solidity language and Web3 Foundation. Highly influential figure in blockchain infrastructure and decentralized systems. Verified authentic with extensive technical contributions to the ecosystem.",
+      
+      "schema:claimReviewed": "Gavin Wood is a legitimate co-founder of Polkadot with verified technical expertise",
+      "schema:reviewRating": {
+        "@type": "schema:Rating",
+        "schema:ratingValue": "true",
+        "schema:bestRating": "true",
+        "schema:worstRating": "false",
+        "schema:description": "Verified co-founder and technical leader"
+      },
+      
+      "ot:influencerProfile": {
+        "@type": "schema:Person",
+        "schema:name": "Gavin Wood",
+        "schema:alternateName": "@gavofyork",
+        "schema:jobTitle": "Co-Founder of Polkadot, Parity Technologies",
+        "schema:identifier": {
+          "@type": "schema:PropertyValue",
+          "schema:propertyID": "platform",
+          "schema:value": "twitter"
+        },
+        "schema:url": "https://twitter.com/gavofyork",
+        "schema:worksFor": {
+          "@type": "schema:Organization",
+          "schema:name": "Parity Technologies"
+        }
+      },
+      
+      "ot:metrics": {
+        "@type": "ot:InfluencerMetrics",
+        "schema:interactionStatistic": [
+          {
+            "@type": "schema:InteractionCounter",
+            "schema:interactionType": {"@type": "schema:FollowAction"},
+            "schema:userInteractionCount": 250000
+          }
+        ],
+        "ot:engagementRate": 9.2,
+        "ot:trendScore": 98,
+        "ot:growthRate": 15.3,
+        "ot:category": "crypto",
+        "ot:verified": true,
+        "ot:expertiseLevel": "founder",
+        "ot:ecosystem": "Polkadot"
+      },
+      
+      "ot:aiInsights": {
+        "@type": "ot:AIInsight",
+        "ot:authenticityScore": 99,
+        "ot:botActivityLikelihood": 1,
+        "ot:audienceCredibility": 97,
+        "ot:growthTrend": "steady",
+        "ot:contentQuality": "exceptional",
+        "ot:technicalExpertise": "founder-level",
+        "ot:influenceLevel": "ecosystem-leader",
+        "schema:description": "Verified co-founder with exceptional technical credibility and ecosystem leadership"
+      },
+      
+      "ot:communityFeedback": {
+        "@type": "ot:CommunityFeedback",
+        "ot:trustScore": 99,
+        "ot:upvotes": 500,
+        "ot:verifiedNotes": [
+          {
+            "@type": "ot:CommunityNote",
+            "schema:text": "Verified co-founder of Polkadot. Creator of Solidity and key architect of Ethereum and Polkadot ecosystems.",
+            "ot:verified": true,
+            "ot:upvotes": 500
+          }
+        ]
+      },
+      
+      "schema:evidence": [
+        "https://polkadot.network/about",
+        "https://parity.io/team"
+      ],
+      
+      "prov:generatedAtTime": "2025-01-25T12:00:00Z",
+      "prov:wasAttributedTo": {
+        "@id": "did:vouch:ai-agent-001",
+        "@type": "prov:Agent",
+        "schema:name": "Vouch AI Agent"
+      },
+      "prov:specializationOf": {
+        "@id": "https://twitter.com/gavofyork"
+      }
+    }
+  ]
+}
+

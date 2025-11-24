@@ -1,0 +1,250 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "ot": "https://schema.origintrail.io/"
+  },
+  "@graph": [
+    {
+      "@id": "urn:uuid:vouch-note-alberto-papermoon-001",
+      "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
+      "schema:about": {
+        "@id": "https://moonbeam.network/team",
+        "@type": ["schema:Person", "foaf:Person"]
+      },
+      "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:propertyID": "influencerId",
+        "schema:value": "alberto-papermoon"
+      },
+      "schema:name": "Alberto (PaperMoon) - Community Note",
+      "schema:text": "Head of Ecosystem / DevRel at Moonbeam (PaperMoon). Key contributor to Moonbeam ecosystem growth and developer relations. Verified authentic with strong community engagement.",
+      "schema:claimReviewed": "Alberto (PaperMoon) is Head of Ecosystem at Moonbeam",
+      "schema:reviewRating": {
+        "@type": "schema:Rating",
+        "schema:ratingValue": "true",
+        "schema:bestRating": "true",
+        "schema:worstRating": "false"
+      },
+      "ot:influencerProfile": {
+        "@type": "schema:Person",
+        "schema:name": "Alberto (PaperMoon)",
+        "schema:jobTitle": "Head of Ecosystem / DevRel at Moonbeam",
+        "schema:worksFor": {
+          "@type": "schema:Organization",
+          "schema:name": "Moonbeam Network"
+        }
+      },
+      "ot:metrics": {
+        "@type": "ot:InfluencerMetrics",
+        "ot:engagementRate": 6.5,
+        "ot:trendScore": 82,
+        "ot:category": "crypto",
+        "ot:verified": true,
+        "ot:ecosystem": "Moonbeam"
+      },
+      "ot:aiInsights": {
+        "@type": "ot:AIInsight",
+        "ot:authenticityScore": 90,
+        "ot:audienceCredibility": 85,
+        "ot:influenceLevel": "ecosystem-contributor"
+      },
+      "prov:generatedAtTime": "2025-01-25T12:25:00Z",
+      "prov:wasAttributedTo": {
+        "@id": "did:vouch:ai-agent-001",
+        "@type": "prov:Agent",
+        "schema:name": "Vouch AI Agent"
+      }
+    },
+    {
+      "@id": "urn:uuid:vouch-note-adam-liposky-001",
+      "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
+      "schema:about": {
+        "@id": "https://moonbeam.foundation/team",
+        "@type": ["schema:Person", "foaf:Person"]
+      },
+      "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:propertyID": "influencerId",
+        "schema:value": "adam-liposky"
+      },
+      "schema:name": "Adam Liposky - Community Note",
+      "schema:text": "Former Head of Ecosystem at Moonbeam Foundation. Key contributor to Moonbeam ecosystem development and growth strategies.",
+      "schema:claimReviewed": "Adam Liposky was Head of Ecosystem at Moonbeam Foundation",
+      "schema:reviewRating": {
+        "@type": "schema:Rating",
+        "schema:ratingValue": "true",
+        "schema:bestRating": "true",
+        "schema:worstRating": "false"
+      },
+      "ot:influencerProfile": {
+        "@type": "schema:Person",
+        "schema:name": "Adam Liposky",
+        "schema:jobTitle": "Former Head of Ecosystem, Moonbeam Foundation"
+      },
+      "ot:metrics": {
+        "@type": "ot:InfluencerMetrics",
+        "ot:engagementRate": 6.2,
+        "ot:trendScore": 80,
+        "ot:category": "crypto",
+        "ot:verified": true,
+        "ot:ecosystem": "Moonbeam"
+      },
+      "ot:aiInsights": {
+        "@type": "ot:AIInsight",
+        "ot:authenticityScore": 88,
+        "ot:audienceCredibility": 83,
+        "ot:influenceLevel": "ecosystem-contributor"
+      },
+      "prov:generatedAtTime": "2025-01-25T12:30:00Z",
+      "prov:wasAttributedTo": {
+        "@id": "did:vouch:ai-agent-001",
+        "@type": "prov:Agent",
+        "schema:name": "Vouch AI Agent"
+      }
+    },
+    {
+      "@id": "urn:uuid:vouch-note-aarya-ravahi-001",
+      "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
+      "schema:about": {
+        "@id": "https://polkadot.network/ecosystem",
+        "@type": ["schema:Person", "foaf:Person"]
+      },
+      "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:propertyID": "influencerId",
+        "schema:value": "aarya-ravahi"
+      },
+      "schema:name": "Aarya Ravahi - Community Note",
+      "schema:text": "Ecosystem Growth Contributor at Polkadot / Parity. Active in ecosystem development and community growth initiatives.",
+      "schema:claimReviewed": "Aarya Ravahi is an Ecosystem Growth Contributor at Polkadot / Parity",
+      "schema:reviewRating": {
+        "@type": "schema:Rating",
+        "schema:ratingValue": "true",
+        "schema:bestRating": "true",
+        "schema:worstRating": "false"
+      },
+      "ot:influencerProfile": {
+        "@type": "schema:Person",
+        "schema:name": "Aarya Ravahi",
+        "schema:jobTitle": "Ecosystem Growth Contributor, Polkadot / Parity"
+      },
+      "ot:metrics": {
+        "@type": "ot:InfluencerMetrics",
+        "ot:engagementRate": 5.8,
+        "ot:trendScore": 78,
+        "ot:category": "crypto",
+        "ot:verified": true,
+        "ot:ecosystem": "Polkadot"
+      },
+      "ot:aiInsights": {
+        "@type": "ot:AIInsight",
+        "ot:authenticityScore": 87,
+        "ot:audienceCredibility": 82,
+        "ot:influenceLevel": "ecosystem-contributor"
+      },
+      "prov:generatedAtTime": "2025-01-25T12:35:00Z",
+      "prov:wasAttributedTo": {
+        "@id": "did:vouch:ai-agent-001",
+        "@type": "prov:Agent",
+        "schema:name": "Vouch AI Agent"
+      }
+    },
+    {
+      "@id": "urn:uuid:vouch-note-nick-odio-001",
+      "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
+      "schema:about": {
+        "@id": "https://ferrum.network/team",
+        "@type": ["schema:Person", "foaf:Person"]
+      },
+      "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:propertyID": "influencerId",
+        "schema:value": "nick-odio"
+      },
+      "schema:name": "Nick Odio - Community Note",
+      "schema:text": "Chief Growth Officer at Ferrum, Advisor in Polkadot ecosystem. Key contributor to growth strategies and ecosystem development.",
+      "schema:claimReviewed": "Nick Odio is Chief Growth Officer at Ferrum and Polkadot ecosystem advisor",
+      "schema:reviewRating": {
+        "@type": "schema:Rating",
+        "schema:ratingValue": "true",
+        "schema:bestRating": "true",
+        "schema:worstRating": "false"
+      },
+      "ot:influencerProfile": {
+        "@type": "schema:Person",
+        "schema:name": "Nick Odio",
+        "schema:jobTitle": "Chief Growth Officer @ Ferrum, Advisor in Polkadot ecosystem"
+      },
+      "ot:metrics": {
+        "@type": "ot:InfluencerMetrics",
+        "ot:engagementRate": 6.0,
+        "ot:trendScore": 81,
+        "ot:category": "crypto",
+        "ot:verified": true,
+        "ot:ecosystem": "Polkadot"
+      },
+      "ot:aiInsights": {
+        "@type": "ot:AIInsight",
+        "ot:authenticityScore": 89,
+        "ot:audienceCredibility": 84,
+        "ot:influenceLevel": "ecosystem-advisor"
+      },
+      "prov:generatedAtTime": "2025-01-25T12:40:00Z",
+      "prov:wasAttributedTo": {
+        "@id": "did:vouch:ai-agent-001",
+        "@type": "prov:Agent",
+        "schema:name": "Vouch AI Agent"
+      }
+    },
+    {
+      "@id": "urn:uuid:vouch-note-ryan-whitehead-001",
+      "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
+      "schema:about": {
+        "@id": "https://moonbeam.foundation/team",
+        "@type": ["schema:Person", "foaf:Person"]
+      },
+      "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:propertyID": "influencerId",
+        "schema:value": "ryan-whitehead"
+      },
+      "schema:name": "Ryan Whitehead - Community Note",
+      "schema:text": "Marketing / Partnerships Lead at Moonbeam Foundation. Former Coinbase and Facebook. Key contributor to Moonbeam marketing and partnership strategies.",
+      "schema:claimReviewed": "Ryan Whitehead is Marketing / Partnerships Lead at Moonbeam Foundation",
+      "schema:reviewRating": {
+        "@type": "schema:Rating",
+        "schema:ratingValue": "true",
+        "schema:bestRating": "true",
+        "schema:worstRating": "false"
+      },
+      "ot:influencerProfile": {
+        "@type": "schema:Person",
+        "schema:name": "Ryan Whitehead",
+        "schema:jobTitle": "Marketing / Partnerships Lead, Moonbeam Foundation (ex-Coinbase / FB)"
+      },
+      "ot:metrics": {
+        "@type": "ot:InfluencerMetrics",
+        "ot:engagementRate": 6.3,
+        "ot:trendScore": 83,
+        "ot:category": "crypto",
+        "ot:verified": true,
+        "ot:ecosystem": "Moonbeam"
+      },
+      "ot:aiInsights": {
+        "@type": "ot:AIInsight",
+        "ot:authenticityScore": 91,
+        "ot:audienceCredibility": 86,
+        "ot:influenceLevel": "ecosystem-contributor"
+      },
+      "prov:generatedAtTime": "2025-01-25T12:45:00Z",
+      "prov:wasAttributedTo": {
+        "@id": "did:vouch:ai-agent-001",
+        "@type": "prov:Agent",
+        "schema:name": "Vouch AI Agent"
+      }
+    }
+  ]
+}
+

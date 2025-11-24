@@ -10,6 +10,24 @@ Each JSON-LD file represents:
 - **Community Notes** (fact-checks, trust scores, verified claims)
 - **Metrics & Analytics** (followers, engagement rates, growth trends)
 
+## Files Included
+
+### General Influencers
+- `influencer_001_alexcrypto.jsonld` - Crypto influencer example
+- `influencer_002_streamking.jsonld` - Gaming/TikTok influencer example
+- `influencer_003_defimaster.jsonld` - DeFi expert example
+
+### Polkadot Ecosystem Influencers
+- `influencer_004_gavinwood.jsonld` - Co-Founder of Polkadot, Parity Technologies
+- `influencer_005_roberthabermeier.jsonld` - Co-Founder of Polkadot
+- `influencer_006_derekyoo.jsonld` - Founder of Moonbeam
+- `influencer_007_bjornwagner.jsonld` - Co-Founder at Parity, Substrate Ecosystem Lead
+- `influencer_008_peterczaban.jsonld` - Co-Founder of Polkadot, Web3 Foundation
+- `polkadot_ecosystem_influencers.jsonld` - Additional Polkadot/Moonbeam team members (Alberto, Adam Liposky, Aarya Ravahi, Nick Odio, Ryan Whitehead)
+
+### Templates
+- `influencer_template.jsonld` - Template for creating new influencer notes
+
 ## How Teammates Should Use This
 
 ### Publishing to DKG Edge Node

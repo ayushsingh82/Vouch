@@ -1,0 +1,114 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "ot": "https://schema.origintrail.io/"
+  },
+  "@graph": [
+    {
+      "@id": "urn:uuid:vouch-note-bjornwagner-001",
+      "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
+      
+      "schema:about": {
+        "@id": "https://twitter.com/bjornwgnr",
+        "@type": ["schema:Person", "foaf:Person"]
+      },
+      
+      "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:propertyID": "influencerId",
+        "schema:value": "bjornwgnr"
+      },
+      
+      "schema:name": "Björn Wagner - Community Note",
+      "schema:text": "Co-Founder and Engineer at Parity Technologies. Substrate Ecosystem Lead with significant contributions to Polkadot infrastructure. Verified authentic with strong technical expertise in blockchain development.",
+      
+      "schema:claimReviewed": "Björn Wagner is a legitimate co-founder at Parity with verified technical contributions",
+      "schema:reviewRating": {
+        "@type": "schema:Rating",
+        "schema:ratingValue": "true",
+        "schema:bestRating": "true",
+        "schema:worstRating": "false",
+        "schema:description": "Verified co-founder and ecosystem lead"
+      },
+      
+      "ot:influencerProfile": {
+        "@type": "schema:Person",
+        "schema:name": "Björn Wagner",
+        "schema:alternateName": "@bjornwgnr",
+        "schema:jobTitle": "Co-Founder / Engineer at Parity, Substrate Ecosystem Lead",
+        "schema:identifier": {
+          "@type": "schema:PropertyValue",
+          "schema:propertyID": "platform",
+          "schema:value": "twitter"
+        },
+        "schema:url": "https://twitter.com/bjornwgnr",
+        "schema:worksFor": {
+          "@type": "schema:Organization",
+          "schema:name": "Parity Technologies"
+        }
+      },
+      
+      "ot:metrics": {
+        "@type": "ot:InfluencerMetrics",
+        "schema:interactionStatistic": [
+          {
+            "@type": "schema:InteractionCounter",
+            "schema:interactionType": {"@type": "schema:FollowAction"},
+            "schema:userInteractionCount": 75000
+          }
+        ],
+        "ot:engagementRate": 7.2,
+        "ot:trendScore": 87,
+        "ot:growthRate": 14.5,
+        "ot:category": "crypto",
+        "ot:verified": true,
+        "ot:expertiseLevel": "founder",
+        "ot:ecosystem": "Polkadot"
+      },
+      
+      "ot:aiInsights": {
+        "@type": "ot:AIInsight",
+        "ot:authenticityScore": 94,
+        "ot:botActivityLikelihood": 4,
+        "ot:audienceCredibility": 88,
+        "ot:growthTrend": "steady",
+        "ot:contentQuality": "high",
+        "ot:technicalExpertise": "founder-level",
+        "ot:influenceLevel": "ecosystem-leader",
+        "schema:description": "Verified co-founder with strong technical contributions to Substrate ecosystem"
+      },
+      
+      "ot:communityFeedback": {
+        "@type": "ot:CommunityFeedback",
+        "ot:trustScore": 94,
+        "ot:upvotes": 180,
+        "ot:verifiedNotes": [
+          {
+            "@type": "ot:CommunityNote",
+            "schema:text": "Verified co-founder at Parity. Key contributor to Substrate framework and Polkadot ecosystem development.",
+            "ot:verified": true,
+            "ot:upvotes": 180
+          }
+        ]
+      },
+      
+      "schema:evidence": [
+        "https://parity.io/team",
+        "https://substrate.io/ecosystem"
+      ],
+      
+      "prov:generatedAtTime": "2025-01-25T12:15:00Z",
+      "prov:wasAttributedTo": {
+        "@id": "did:vouch:ai-agent-001",
+        "@type": "prov:Agent",
+        "schema:name": "Vouch AI Agent"
+      },
+      "prov:specializationOf": {
+        "@id": "https://twitter.com/bjornwgnr"
+      }
+    }
+  ]
+}
+

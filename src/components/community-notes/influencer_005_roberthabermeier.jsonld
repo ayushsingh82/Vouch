@@ -1,0 +1,114 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "ot": "https://schema.origintrail.io/"
+  },
+  "@graph": [
+    {
+      "@id": "urn:uuid:vouch-note-roberthabermeier-001",
+      "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
+      
+      "schema:about": {
+        "@id": "https://twitter.com/rphmeier",
+        "@type": ["schema:Person", "foaf:Person"]
+      },
+      
+      "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:propertyID": "influencerId",
+        "schema:value": "rphmeier"
+      },
+      
+      "schema:name": "Robert Habermeier - Community Note",
+      "schema:text": "Co-Founder of Polkadot with deep technical expertise in blockchain consensus and runtime development. Key contributor to Substrate framework. Verified authentic with strong technical credibility in the Polkadot ecosystem.",
+      
+      "schema:claimReviewed": "Robert Habermeier is a legitimate co-founder of Polkadot with verified technical contributions",
+      "schema:reviewRating": {
+        "@type": "schema:Rating",
+        "schema:ratingValue": "true",
+        "schema:bestRating": "true",
+        "schema:worstRating": "false",
+        "schema:description": "Verified co-founder and technical expert"
+      },
+      
+      "ot:influencerProfile": {
+        "@type": "schema:Person",
+        "schema:name": "Robert Habermeier",
+        "schema:alternateName": "@rphmeier",
+        "schema:jobTitle": "Co-Founder of Polkadot",
+        "schema:identifier": {
+          "@type": "schema:PropertyValue",
+          "schema:propertyID": "platform",
+          "schema:value": "twitter"
+        },
+        "schema:url": "https://twitter.com/rphmeier",
+        "schema:worksFor": {
+          "@type": "schema:Organization",
+          "schema:name": "Polkadot"
+        }
+      },
+      
+      "ot:metrics": {
+        "@type": "ot:InfluencerMetrics",
+        "schema:interactionStatistic": [
+          {
+            "@type": "schema:InteractionCounter",
+            "schema:interactionType": {"@type": "schema:FollowAction"},
+            "schema:userInteractionCount": 180000
+          }
+        ],
+        "ot:engagementRate": 8.8,
+        "ot:trendScore": 96,
+        "ot:growthRate": 12.7,
+        "ot:category": "crypto",
+        "ot:verified": true,
+        "ot:expertiseLevel": "founder",
+        "ot:ecosystem": "Polkadot"
+      },
+      
+      "ot:aiInsights": {
+        "@type": "ot:AIInsight",
+        "ot:authenticityScore": 98,
+        "ot:botActivityLikelihood": 2,
+        "ot:audienceCredibility": 95,
+        "ot:growthTrend": "steady",
+        "ot:contentQuality": "high",
+        "ot:technicalExpertise": "founder-level",
+        "ot:influenceLevel": "ecosystem-leader",
+        "schema:description": "Verified co-founder with strong technical expertise in blockchain consensus"
+      },
+      
+      "ot:communityFeedback": {
+        "@type": "ot:CommunityFeedback",
+        "ot:trustScore": 98,
+        "ot:upvotes": 320,
+        "ot:verifiedNotes": [
+          {
+            "@type": "ot:CommunityNote",
+            "schema:text": "Verified co-founder of Polkadot. Key technical contributor to Substrate framework and consensus mechanisms.",
+            "ot:verified": true,
+            "ot:upvotes": 320
+          }
+        ]
+      },
+      
+      "schema:evidence": [
+        "https://polkadot.network/about",
+        "https://substrate.io/"
+      ],
+      
+      "prov:generatedAtTime": "2025-01-25T12:05:00Z",
+      "prov:wasAttributedTo": {
+        "@id": "did:vouch:ai-agent-001",
+        "@type": "prov:Agent",
+        "schema:name": "Vouch AI Agent"
+      },
+      "prov:specializationOf": {
+        "@id": "https://twitter.com/rphmeier"
+      }
+    }
+  ]
+}
+
