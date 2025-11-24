@@ -1,0 +1,106 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "ot": "https://schema.origintrail.io/"
+  },
+  "@graph": [
+    {
+      "@id": "urn:uuid:vouch-note-{INFLUENCER_ID}-{TIMESTAMP}",
+      "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
+      
+      "schema:about": {
+        "@id": "{CREATOR_URL_FROM_GUARDIAN_SOCIAL_GRAPH}",
+        "@type": ["schema:Person", "foaf:Person"]
+      },
+      
+      "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:propertyID": "influencerId",
+        "schema:value": "{INFLUENCER_HANDLE}"
+      },
+      
+      "schema:name": "{INFLUENCER_NAME} - Community Note",
+      "schema:text": "{AI_GENERATED_SUMMARY_TEXT}",
+      
+      "schema:claimReviewed": "{CLAIM_ABOUT_INFLUENCER}",
+      "schema:reviewRating": {
+        "@type": "schema:Rating",
+        "schema:ratingValue": "{true|false}",
+        "schema:bestRating": "true",
+        "schema:worstRating": "false",
+        "schema:description": "{VERDICT_DESCRIPTION}"
+      },
+      
+      "ot:influencerProfile": {
+        "@type": "schema:Person",
+        "schema:name": "{INFLUENCER_NAME}",
+        "schema:alternateName": "{@HANDLE}",
+        "schema:identifier": {
+          "@type": "schema:PropertyValue",
+          "schema:propertyID": "platform",
+          "schema:value": "{twitter|instagram|youtube|tiktok|reddit}"
+        },
+        "schema:url": "{PROFILE_URL}"
+      },
+      
+      "ot:metrics": {
+        "@type": "ot:InfluencerMetrics",
+        "schema:interactionStatistic": [
+          {
+            "@type": "schema:InteractionCounter",
+            "schema:interactionType": {"@type": "schema:FollowAction"},
+            "schema:userInteractionCount": {FOLLOWER_COUNT}
+          }
+        ],
+        "ot:engagementRate": {ENGAGEMENT_RATE},
+        "ot:trendScore": {TREND_SCORE},
+        "ot:growthRate": {GROWTH_RATE},
+        "ot:category": "{CATEGORY}",
+        "ot:verified": {true|false}
+      },
+      
+      "ot:aiInsights": {
+        "@type": "ot:AIInsight",
+        "ot:authenticityScore": {AUTHENTICITY_SCORE},
+        "ot:botActivityLikelihood": {BOT_LIKELIHOOD},
+        "ot:audienceCredibility": {AUDIENCE_CREDIBILITY},
+        "ot:growthTrend": "{steady|rapid|declining}",
+        "ot:contentQuality": "{high|medium|low}",
+        "ot:audienceEngagement": "{exceptional|high|medium|low}",
+        "schema:description": "{AI_GENERATED_INSIGHT_DESCRIPTION}"
+      },
+      
+      "ot:communityFeedback": {
+        "@type": "ot:CommunityFeedback",
+        "ot:trustScore": {TRUST_SCORE},
+        "ot:upvotes": {UPVOTE_COUNT},
+        "ot:verifiedNotes": [
+          {
+            "@type": "ot:CommunityNote",
+            "schema:text": "{COMMUNITY_NOTE_TEXT}",
+            "ot:verified": {true|false},
+            "ot:upvotes": {NOTE_UPVOTES}
+          }
+        ]
+      },
+      
+      "schema:evidence": [
+        "{EVIDENCE_URL_1}",
+        "{EVIDENCE_URL_2}"
+      ],
+      
+      "prov:generatedAtTime": "{ISO_TIMESTAMP}",
+      "prov:wasAttributedTo": {
+        "@id": "did:vouch:ai-agent-001",
+        "@type": "prov:Agent",
+        "schema:name": "Vouch AI Agent"
+      },
+      "prov:specializationOf": {
+        "@id": "{CREATOR_URL_FROM_GUARDIAN_SOCIAL_GRAPH}"
+      }
+    }
+  ]
+}
+

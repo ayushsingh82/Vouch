@@ -1,0 +1,113 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "ot": "https://schema.origintrail.io/"
+  },
+  "@graph": [
+    {
+      "@id": "urn:uuid:vouch-note-alexcrypto-001",
+      "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
+      
+      "schema:about": {
+        "@id": "https://twitter.com/i/user/748244810692104192",
+        "@type": ["schema:Person", "foaf:Person"]
+      },
+      
+      "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:propertyID": "influencerId",
+        "schema:value": "alexcrypto"
+      },
+      
+      "schema:name": "Alex Crypto - Community Note",
+      "schema:text": "Verified high-quality content with consistent engagement patterns. No bot activity detected. Strong correlation with crypto market trends. Audience shows high interest in DeFi topics.",
+      
+      "schema:claimReviewed": "Alex Crypto is an authentic crypto influencer with genuine engagement",
+      "schema:reviewRating": {
+        "@type": "schema:Rating",
+        "schema:ratingValue": "true",
+        "schema:bestRating": "true",
+        "schema:worstRating": "false",
+        "schema:description": "Verified authentic influencer"
+      },
+      
+      "ot:influencerProfile": {
+        "@type": "schema:Person",
+        "schema:name": "Alex Crypto",
+        "schema:alternateName": "@alexcrypto",
+        "schema:identifier": {
+          "@type": "schema:PropertyValue",
+          "schema:propertyID": "platform",
+          "schema:value": "twitter"
+        },
+        "schema:url": "https://twitter.com/alexcrypto"
+      },
+      
+      "ot:metrics": {
+        "@type": "ot:InfluencerMetrics",
+        "schema:interactionStatistic": [
+          {
+            "@type": "schema:InteractionCounter",
+            "schema:interactionType": {"@type": "schema:FollowAction"},
+            "schema:userInteractionCount": 125000
+          }
+        ],
+        "ot:engagementRate": 8.5,
+        "ot:trendScore": 95,
+        "ot:growthRate": 12.5,
+        "ot:category": "crypto",
+        "ot:verified": true
+      },
+      
+      "ot:aiInsights": {
+        "@type": "ot:AIInsight",
+        "ot:authenticityScore": 92,
+        "ot:botActivityLikelihood": 4,
+        "ot:audienceCredibility": 88,
+        "ot:growthTrend": "up",
+        "ot:peakEngagementTimes": "Tuesdays and Thursdays between 2-4 PM EST",
+        "ot:audienceDemographics": "25-34 years, 68% male, high interest in blockchain and DeFi",
+        "ot:emergingTrends": "Growing interest in Layer 2 solutions and zero-knowledge proofs",
+        "schema:description": "High-quality content creator with authentic engagement patterns and strong community trust"
+      },
+      
+      "ot:communityFeedback": {
+        "@type": "ot:CommunityFeedback",
+        "ot:trustScore": 92,
+        "ot:upvotes": 45,
+        "ot:verifiedNotes": [
+          {
+            "@type": "ot:CommunityNote",
+            "schema:text": "Verified high-quality content with consistent engagement patterns. No bot activity detected.",
+            "ot:verified": true,
+            "ot:upvotes": 45
+          },
+          {
+            "@type": "ot:CommunityNote",
+            "schema:text": "Strong correlation with crypto market trends. Audience shows high interest in DeFi topics.",
+            "ot:verified": true,
+            "ot:upvotes": 32
+          }
+        ]
+      },
+      
+      "schema:evidence": [
+        "https://guardian.example/analysis/alexcrypto-001",
+        "https://dkg.example/verification/abc123"
+      ],
+      
+      "prov:generatedAtTime": "2025-01-15T10:30:00Z",
+      "prov:wasAttributedTo": {
+        "@id": "did:vouch:ai-agent-001",
+        "@type": "prov:Agent",
+        "schema:name": "Vouch AI Agent"
+      },
+      "prov:specializationOf": {
+        "@id": "https://twitter.com/i/user/748244810692104192"
+      }
+    }
+  ]
+}
+

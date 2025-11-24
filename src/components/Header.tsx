@@ -11,7 +11,7 @@ export default function Header() {
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center">
               <h1 className="text-2xl font-black text-black italic border-2 border-black px-3 py-2 rounded-lg" style={{ backgroundColor: '#FFD1B3' }}>
-                X402
+                Vouch
               </h1>
             </Link>
             <nav className="flex items-center gap-6">

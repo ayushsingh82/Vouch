@@ -1,0 +1,105 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "ot": "https://schema.origintrail.io/"
+  },
+  "@graph": [
+    {
+      "@id": "urn:uuid:vouch-note-streamking-001",
+      "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
+      
+      "schema:about": {
+        "@id": "https://tiktok.com/@streamking",
+        "@type": ["schema:Person", "foaf:Person"]
+      },
+      
+      "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:propertyID": "influencerId",
+        "schema:value": "streamking"
+      },
+      
+      "schema:name": "Stream King - Community Note",
+      "schema:text": "Highly trending gaming content creator with exceptional engagement rates. Verified authentic audience with minimal bot activity. Strong growth trajectory in gaming and streaming categories.",
+      
+      "schema:claimReviewed": "Stream King is a legitimate gaming influencer with authentic engagement",
+      "schema:reviewRating": {
+        "@type": "schema:Rating",
+        "schema:ratingValue": "true",
+        "schema:bestRating": "true",
+        "schema:worstRating": "false",
+        "schema:description": "Verified authentic influencer with exceptional metrics"
+      },
+      
+      "ot:influencerProfile": {
+        "@type": "schema:Person",
+        "schema:name": "Stream King",
+        "schema:alternateName": "@streamking",
+        "schema:identifier": {
+          "@type": "schema:PropertyValue",
+          "schema:propertyID": "platform",
+          "schema:value": "tiktok"
+        },
+        "schema:url": "https://tiktok.com/@streamking"
+      },
+      
+      "ot:metrics": {
+        "@type": "ot:InfluencerMetrics",
+        "schema:interactionStatistic": [
+          {
+            "@type": "schema:InteractionCounter",
+            "schema:interactionType": {"@type": "schema:FollowAction"},
+            "schema:userInteractionCount": 750000
+          }
+        ],
+        "ot:engagementRate": 10.2,
+        "ot:trendScore": 96,
+        "ot:growthRate": 30.5,
+        "ot:category": "gaming",
+        "ot:verified": true
+      },
+      
+      "ot:aiInsights": {
+        "@type": "ot:AIInsight",
+        "ot:authenticityScore": 95,
+        "ot:botActivityLikelihood": 2,
+        "ot:audienceCredibility": 91,
+        "ot:growthTrend": "rapid",
+        "ot:contentQuality": "high",
+        "ot:audienceEngagement": "exceptional",
+        "schema:description": "Top-tier gaming influencer with rapid growth and exceptional engagement metrics"
+      },
+      
+      "ot:communityFeedback": {
+        "@type": "ot:CommunityFeedback",
+        "ot:trustScore": 96,
+        "ot:upvotes": 120,
+        "ot:verifiedNotes": [
+          {
+            "@type": "ot:CommunityNote",
+            "schema:text": "Verified authentic gaming content with exceptional viewer engagement",
+            "ot:verified": true,
+            "ot:upvotes": 120
+          }
+        ]
+      },
+      
+      "schema:evidence": [
+        "https://guardian.example/analysis/streamking-001"
+      ],
+      
+      "prov:generatedAtTime": "2025-01-20T14:15:00Z",
+      "prov:wasAttributedTo": {
+        "@id": "did:vouch:ai-agent-001",
+        "@type": "prov:Agent",
+        "schema:name": "Vouch AI Agent"
+      },
+      "prov:specializationOf": {
+        "@id": "https://tiktok.com/@streamking"
+      }
+    }
+  ]
+}
+

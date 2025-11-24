@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "X402 - Future of Payments",
-  description: "Experience seamless payments with X402 Protocol",
+  title: "Vouch - Decentralized Influencer Verification",
+  description: "Community-driven fact-checking and influencer verification powered by DKG and X402 Protocol",
 };
 
 export default function RootLayout({

@@ -1,0 +1,105 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "ot": "https://schema.origintrail.io/"
+  },
+  "@graph": [
+    {
+      "@id": "urn:uuid:vouch-note-defimaster-001",
+      "@type": ["schema:Comment", "prov:Entity", "ot:CommunityNote"],
+      
+      "schema:about": {
+        "@id": "https://twitter.com/defimaster",
+        "@type": ["schema:Person", "foaf:Person"]
+      },
+      
+      "schema:identifier": {
+        "@type": "schema:PropertyValue",
+        "schema:propertyID": "influencerId",
+        "schema:value": "defimaster"
+      },
+      
+      "schema:name": "DeFi Master - Community Note",
+      "schema:text": "Expert DeFi content creator with high engagement rates and strong community trust. Verified authentic with deep technical knowledge in decentralized finance.",
+      
+      "schema:claimReviewed": "DeFi Master provides accurate and valuable DeFi information",
+      "schema:reviewRating": {
+        "@type": "schema:Rating",
+        "schema:ratingValue": "true",
+        "schema:bestRating": "true",
+        "schema:worstRating": "false",
+        "schema:description": "Verified expert in DeFi"
+      },
+      
+      "ot:influencerProfile": {
+        "@type": "schema:Person",
+        "schema:name": "DeFi Master",
+        "schema:alternateName": "@defimaster",
+        "schema:identifier": {
+          "@type": "schema:PropertyValue",
+          "schema:propertyID": "platform",
+          "schema:value": "twitter"
+        },
+        "schema:url": "https://twitter.com/defimaster"
+      },
+      
+      "ot:metrics": {
+        "@type": "ot:InfluencerMetrics",
+        "schema:interactionStatistic": [
+          {
+            "@type": "schema:InteractionCounter",
+            "schema:interactionType": {"@type": "schema:FollowAction"},
+            "schema:userInteractionCount": 95000
+          }
+        ],
+        "ot:engagementRate": 9.5,
+        "ot:trendScore": 93,
+        "ot:growthRate": 25.3,
+        "ot:category": "crypto",
+        "ot:verified": true
+      },
+      
+      "ot:aiInsights": {
+        "@type": "ot:AIInsight",
+        "ot:authenticityScore": 94,
+        "ot:botActivityLikelihood": 3,
+        "ot:audienceCredibility": 90,
+        "ot:growthTrend": "rapid",
+        "ot:expertiseLevel": "high",
+        "ot:contentAccuracy": 92,
+        "schema:description": "Expert DeFi influencer with rapid growth and high content accuracy"
+      },
+      
+      "ot:communityFeedback": {
+        "@type": "ot:CommunityFeedback",
+        "ot:trustScore": 93,
+        "ot:upvotes": 78,
+        "ot:verifiedNotes": [
+          {
+            "@type": "ot:CommunityNote",
+            "schema:text": "Verified DeFi expert with accurate technical analysis",
+            "ot:verified": true,
+            "ot:upvotes": 78
+          }
+        ]
+      },
+      
+      "schema:evidence": [
+        "https://guardian.example/analysis/defimaster-001"
+      ],
+      
+      "prov:generatedAtTime": "2025-01-18T11:20:00Z",
+      "prov:wasAttributedTo": {
+        "@id": "did:vouch:ai-agent-001",
+        "@type": "prov:Agent",
+        "schema:name": "Vouch AI Agent"
+      },
+      "prov:specializationOf": {
+        "@id": "https://twitter.com/defimaster"
+      }
+    }
+  ]
+}
+
