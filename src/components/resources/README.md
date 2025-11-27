@@ -1,23 +1,23 @@
-# Resources - Governance DKG Knowledge Assets
+# Resources - Vouch DKG Knowledge Assets
 
 ## Purpose
-This folder contains JSON-LD Knowledge Assets representing Polkadot governance proposals, reports, and additional information for the OriginTrail DKG.
+This folder contains JSON-LD Knowledge Assets representing influencer profiles, community notes, verification data, and additional information for the OriginTrail DKG.
 
 ## Structure
 Each JSON-LD file represents:
-- **Governance Proposals** (Polkadot OpenGov referenda with full metadata)
-- **Premium Reports** (Community-submitted analysis and audits)
-- **Additional Information** (Supplementary data, articles, and context)
-- **Influencer Profiles** (Polkadot ecosystem leaders and contributors)
+- **Influencer Profiles** (Social media influencers with verification data and metrics)
+- **Community Notes** (Fact-checks, insights, and community-submitted analysis)
+- **Additional Information** (Supplementary articles, context, and related data)
+- **Verification Data** (AI-generated authenticity scores and trust metrics)
 
 ## Files Included
 
-### Governance Proposals
-- `referenda_example.jsonld` - Example Polkadot OpenGov proposal with full schema
-- Additional proposal examples can be added here
+### Influencer Profiles
+- `referenda_example.jsonld` - Example influencer profile (Gavin Wood) with verification data
+- Additional influencer profiles can be added here
 
 ### Additional Information
-- `additional_info.jsonld` - Supplementary articles, context, and related information
+- `additional_info.jsonld` - Supplementary articles, analysis, and related information
 - Additional context files can be added here
 
 ### Influencer Profiles
@@ -33,7 +33,7 @@ Each JSON-LD file represents:
 ### Publishing to DKG Edge Node
 
 ```bash
-# Publish a governance proposal
+# Publish an influencer profile
 curl -X POST http://localhost:9201/api/dkg/assets \
   -H "Content-Type: application/json" \
   -d @referenda_example.jsonld
@@ -54,18 +54,27 @@ curl -X POST http://localhost:9201/api/dkg/assets \
 
 ## Data Model
 
-### Governance Proposals
-- **@context**: Uses Schema.org, custom Polkadot governance vocabularies
-- **@type**: `GovernanceProposal`, `schema:Proposal`
-- **@id**: Unique proposal identifier (e.g., `polkadot:referendum:5`)
-- **schema:about**: Links to related entities and proposals
-- **polkadot:treasurySpend**: Treasury allocation details
-- **polkadot:votingResults**: Voting outcome data
+### Influencer Profiles
+- **@context**: Uses Schema.org, OriginTrail (ot:), and Vouch (vouch:) vocabularies
+- **@type**: `schema:Person`, `ot:InfluencerProfile`, `vouch:VerifiedInfluencer`
+- **@id**: Unique influencer identifier (e.g., `vouch:influencer:gavinwood`)
+- **schema:about**: Links to social media profiles and related entities
+- **ot:metrics**: Engagement, followers, growth rates
+- **ot:aiVerification**: Authenticity scores, bot detection, verification status
+- **vouch:trustScore**: Community trust score (0-100)
+
+### Community Notes
+- **@context**: Schema.org, PROV, OriginTrail vocabularies
+- **@type**: `schema:Comment`, `prov:Entity`, `ot:CommunityNote`
+- **schema:about**: Links to influencer profile UAL
+- **ot:verified**: Whether note has been verified by AI agent
+- **ot:trustScore**: Community trust score for the note
+- **prov:wasAttributedTo**: Author or AI agent that created the note
 
 ### Premium Reports
-- **@context**: Schema.org, DKG, and Polkadot vocabularies
+- **@context**: Schema.org, DKG, and Vouch vocabularies
 - **@type**: `schema:Report`
-- **schema:about**: Links to parent proposal UAL
+- **schema:about**: Links to parent influencer UAL
 - **dkg:reportType**: "premium" or "public"
 - **dkg:premiumPrice**: Price in TRAC tokens
 - **dkg:privateDataHash**: Hash reference to private data (if applicable)
@@ -79,38 +88,40 @@ curl -X POST http://localhost:9201/api/dkg/assets \
 
 ## Integration with DKG
 
-These assets extend the Polkadot governance knowledge graph by:
-- Creating permanent, verifiable records of proposals
-- Linking reports to parent proposals via UAL
-- Enabling semantic queries across proposal relationships
-- Supporting AI agent reasoning over governance data
-- Providing monetization via x402 for premium content
+These assets extend the influencer verification knowledge graph by:
+- Creating permanent, verifiable records of influencer profiles and reputation
+- Linking community notes to influencer profiles via UAL
+- Enabling semantic queries across influencer relationships and trends
+- Supporting AI agent reasoning over authenticity and trust data
+- Providing monetization via x402 for premium insights and analysis
 
 ## Querying via MCP/SPARQL
 
 After publishing, agents can query:
 
 ```sparql
-# Find all proposals by a specific proposer
-SELECT ?proposal ?title ?status WHERE {
-  ?proposal polkadot:proposer ?proposer ;
-            schema:name ?title ;
-            polkadot:status ?status .
-  ?proposer schema:identifier "15oXzySe6tjF2MumHfUodH8pFQWjy2hraRmXUJXXMKKY6p3F" .
+# Find all influencers by platform
+SELECT ?influencer ?name ?handle ?trustScore WHERE {
+  ?influencer ot:platform "twitter" ;
+             schema:name ?name ;
+             schema:alternateName ?handle ;
+             vouch:trustScore ?trustScore .
 }
 
-# Find all reports linked to a proposal
-SELECT ?report ?name ?verificationStatus WHERE {
-  ?report schema:about <PROPOSAL_UAL> ;
-          schema:name ?name ;
-          polkadot:verificationStatus ?verificationStatus .
+# Find all community notes linked to an influencer
+SELECT ?note ?content ?verified ?trustScore WHERE {
+  ?note schema:about <INFLUENCER_UAL> ;
+        schema:text ?content ;
+        ot:verified ?verified ;
+        ot:trustScore ?trustScore .
 }
 
-# Find premium reports requiring payment
-SELECT ?report ?price ?payee WHERE {
-  ?report dkg:reportType "premium" ;
-          dkg:premiumPrice ?price ;
-          dkg:payeeWallet ?payee .
+# Find premium insights requiring payment
+SELECT ?insight ?title ?price ?payee WHERE {
+  ?insight dkg:reportType "premium" ;
+           schema:name ?title ;
+           dkg:premiumPrice ?price ;
+           dkg:payeeWallet ?payee .
 }
 ```
 
