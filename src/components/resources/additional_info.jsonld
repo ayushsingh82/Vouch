@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "ot": "https://schema.origintrail.io/"
+  },
+  "@graph": [
+    {
+      "@type": ["prov:Entity", "schema:Article", "ot:AdditionalInformation"],
+      "@id": "vouch:article:influencer-analysis-001",
+      "schema:headline": "Polkadot Ecosystem Influencer Analysis",
+      "schema:description": "Comprehensive analysis of Polkadot ecosystem influencers including engagement patterns, authenticity verification, and community trust scores.",
+      "schema:about": {
+        "@id": "did:dkg:otp:20430/0xcdb28e93ed340ec10a71bba00a31dbfcf1bd5d37/396116"
+      },
+      "schema:url": "https://vouch.app/article/polkadot-ecosystem-analysis",
+      "schema:datePublished": "2025-01-25T14:30:00Z",
+      "prov:generatedAtTime": "2025-01-25T14:30:00Z",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Vouch AI Agent",
+        "schema:identifier": "vouch:agent:verification-001"
+      },
+      "ot:contentType": "influencer-analysis",
+      "ot:relatedInfluencers": [
+        "vouch:influencer:gavinwood",
+        "vouch:influencer:roberthabermeier"
+      ]
+    }
+  ]
+}
+

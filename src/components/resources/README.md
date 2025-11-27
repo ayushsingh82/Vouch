@@ -1,72 +1,124 @@
-# Vouch - Community Notes Knowledge Assets
+# Resources - Governance DKG Knowledge Assets
 
 ## Purpose
-This folder contains JSON-LD Knowledge Assets representing influencer community notes and AI-generated insights for the OriginTrail DKG.
+This folder contains JSON-LD Knowledge Assets representing Polkadot governance proposals, reports, and additional information for the OriginTrail DKG.
 
 ## Structure
 Each JSON-LD file represents:
-- **Influencer Profile Data** (linked to Guardian Social Graph creators)
-- **AI-Generated Insights** (authenticity, trends, engagement analysis)
-- **Community Notes** (fact-checks, trust scores, verified claims)
-- **Metrics & Analytics** (followers, engagement rates, growth trends)
+- **Governance Proposals** (Polkadot OpenGov referenda with full metadata)
+- **Premium Reports** (Community-submitted analysis and audits)
+- **Additional Information** (Supplementary data, articles, and context)
+- **Influencer Profiles** (Polkadot ecosystem leaders and contributors)
 
 ## Files Included
 
-### General Influencers
-- `influencer_001_alexcrypto.jsonld` - Crypto influencer example
-- `influencer_002_streamking.jsonld` - Gaming/TikTok influencer example
-- `influencer_003_defimaster.jsonld` - DeFi expert example
+### Governance Proposals
+- `referenda_example.jsonld` - Example Polkadot OpenGov proposal with full schema
+- Additional proposal examples can be added here
 
-### Polkadot Ecosystem Influencers
+### Additional Information
+- `additional_info.jsonld` - Supplementary articles, context, and related information
+- Additional context files can be added here
+
+### Influencer Profiles
 - `influencer_004_gavinwood.jsonld` - Co-Founder of Polkadot, Parity Technologies
 - `influencer_005_roberthabermeier.jsonld` - Co-Founder of Polkadot
 - `influencer_006_derekyoo.jsonld` - Founder of Moonbeam
 - `influencer_007_bjornwagner.jsonld` - Co-Founder at Parity, Substrate Ecosystem Lead
 - `influencer_008_peterczaban.jsonld` - Co-Founder of Polkadot, Web3 Foundation
-- `polkadot_ecosystem_influencers.jsonld` - Additional Polkadot/Moonbeam team members (Alberto, Adam Liposky, Aarya Ravahi, Nick Odio, Ryan Whitehead)
+- `polkadot_ecosystem_influencers.jsonld` - Additional Polkadot/Moonbeam team members
 
-### Templates
-- `influencer_template.jsonld` - Template for creating new influencer notes
-
-## How Teammates Should Use This
+## How to Use
 
 ### Publishing to DKG Edge Node
 
 ```bash
-# Publish a single community note
-curl -X POST http://localhost:8900/api/v1/knowledge-asset/publish \
+# Publish a governance proposal
+curl -X POST http://localhost:9201/api/dkg/assets \
   -H "Content-Type: application/json" \
-  -d @influencer_001.jsonld
+  -d @referenda_example.jsonld
+
+# Publish additional information
+curl -X POST http://localhost:9201/api/dkg/assets \
+  -H "Content-Type: application/json" \
+  -d @additional_info.jsonld
 ```
 
 ### What Happens After Publishing
 1. DKG Edge Node transforms JSON-LD into RDF triples
 2. Knowledge Asset is signed and published to DKG network
-3. MCP tools can query these triples via SPARQL
-4. AI agents can access influencer insights through MCP
+3. UAL (Universal Asset Locator) is generated
+4. Asset is anchored on blockchain (NeuroWeb/Polkadot)
+5. MCP tools can query these triples via SPARQL
+6. AI agents can access governance data through MCP
 
 ## Data Model
-- **@context**: Uses Schema.org, PROV, FOAF vocabularies
-- **@type**: `schema:Comment`, `prov:Entity`, `ot:CommunityNote`
-- **schema:about**: Links to Guardian Social Graph post/creator URLs
-- **prov:generatedAtTime**: Timestamp of note creation
-- **prov:wasAttributedTo**: AI agent or contributor DID
 
-## Integration with Guardian Social Graph
-These notes extend the existing Guardian Social Graph by:
-- Linking to creator profiles via `schema:about`
-- Adding fact-check annotations to posts
-- Providing AI-verified insights about influencer authenticity
-- Creating trust scores and community feedback
+### Governance Proposals
+- **@context**: Uses Schema.org, custom Polkadot governance vocabularies
+- **@type**: `GovernanceProposal`, `schema:Proposal`
+- **@id**: Unique proposal identifier (e.g., `polkadot:referendum:5`)
+- **schema:about**: Links to related entities and proposals
+- **polkadot:treasurySpend**: Treasury allocation details
+- **polkadot:votingResults**: Voting outcome data
 
-## Querying via MCP
+### Premium Reports
+- **@context**: Schema.org, DKG, and Polkadot vocabularies
+- **@type**: `schema:Report`
+- **schema:about**: Links to parent proposal UAL
+- **dkg:reportType**: "premium" or "public"
+- **dkg:premiumPrice**: Price in TRAC tokens
+- **dkg:privateDataHash**: Hash reference to private data (if applicable)
+
+### Additional Information
+- **@context**: Schema.org, PROV vocabularies
+- **@type**: `schema:Article`, `prov:Entity`
+- **schema:about**: Links to related DKG assets via UAL
+- **prov:generatedAtTime**: Timestamp of creation
+- **prov:wasAttributedTo**: Author or agent DID
+
+## Integration with DKG
+
+These assets extend the Polkadot governance knowledge graph by:
+- Creating permanent, verifiable records of proposals
+- Linking reports to parent proposals via UAL
+- Enabling semantic queries across proposal relationships
+- Supporting AI agent reasoning over governance data
+- Providing monetization via x402 for premium content
+
+## Querying via MCP/SPARQL
+
 After publishing, agents can query:
 
 ```sparql
-SELECT ?note ?text ?trustScore WHERE {
-  ?note schema:about <CREATOR_URL> ;
-        schema:text ?text ;
-        ot:trustScore ?trustScore .
+# Find all proposals by a specific proposer
+SELECT ?proposal ?title ?status WHERE {
+  ?proposal polkadot:proposer ?proposer ;
+            schema:name ?title ;
+            polkadot:status ?status .
+  ?proposer schema:identifier "15oXzySe6tjF2MumHfUodH8pFQWjy2hraRmXUJXXMKKY6p3F" .
+}
+
+# Find all reports linked to a proposal
+SELECT ?report ?name ?verificationStatus WHERE {
+  ?report schema:about <PROPOSAL_UAL> ;
+          schema:name ?name ;
+          polkadot:verificationStatus ?verificationStatus .
+}
+
+# Find premium reports requiring payment
+SELECT ?report ?price ?payee WHERE {
+  ?report dkg:reportType "premium" ;
+          dkg:premiumPrice ?price ;
+          dkg:payeeWallet ?payee .
 }
 ```
 
+## x402 Integration
+
+Premium reports can be accessed via x402 payment protocol:
+1. Query public metadata (free)
+2. Request access to private/premium content
+3. Pay via x402 facilitator
+4. Receive access token
+5. Query full report content

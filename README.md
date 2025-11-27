@@ -1,30 +1,31 @@
-# Polkadot Governance DKG - Decentralized Transparency Engine
+# Vouch - Decentralized Influencer Verification Platform
 
 ## Executive Summary
 
-Polkadot Governance DKG is a decentralized transparency engine designed for Polkadot OpenGov. It leverages the OriginTrail Decentralized Knowledge Graph (DKG) to create a verifiable, immutable history of proposal milestones, reporter reputation, and governance updates.
+Vouch is a decentralized transparency engine for social media influencer verification and community fact-checking. It leverages the OriginTrail Decentralized Knowledge Graph (DKG) to create a verifiable, immutable history of influencer authenticity, community notes, trust scores, and engagement analytics.
 
-By combining AI-driven verification (Agent Layer), DKG semantic linking (Knowledge Layer), and automated smart contract incentives (Trust Layer), we address the critical lack of accountability in the $100M+ annual Polkadot Treasury spend. This project transforms static proposal data into a living, queryable Knowledge Graph while automating rewards for honest community auditors.
+By combining AI-driven verification (Agent Layer), DKG semantic linking (Knowledge Layer), and automated payment incentives via x402 (Trust Layer), we address the critical lack of transparency in influencer marketing and social media authenticity. This project transforms fragmented social data into a living, queryable Knowledge Graph while enabling monetization of premium insights for community auditors.
 
 ## Problem Statement & Motivation
 
-Polkadot OpenGov allocates nearly $100 million annually for proposals and bounties. Despite this scale, the ecosystem suffers from significant transparency and data discovery issues:
+The social media ecosystem suffers from significant transparency and verification issues:
 
-- **Lack of On-Chain Accountability**: There is no native mechanism to track milestone updates or historical changes to proposals on-chain.
-- **Title Manipulation**: Proposers can alter titles (e.g., changing a failing proposal's title to "Please Vote Nay") to evade negative reputation. These changes are currently lost to history.
-- **Fragmented Reporting**: Honest teams publish milestone reports on social media or disparate forums, making it difficult for voters to find updates.
-- **Inefficient Tipping System**: The current tipping mechanism for independent auditors is slow, manual, and tedious. It consumes valuable voter time and often discourages consistent community reporting due to the friction of applying for and receiving small tips.
+- **Lack of Authenticity Verification**: There is no reliable mechanism to verify influencer authenticity, detect bot activity, or validate engagement metrics across platforms.
+- **Fragmented Community Notes**: Fact-checks and community insights are scattered across platforms, making it difficult to build comprehensive trust profiles.
+- **No Reputation History**: Influencers can delete negative content or change profiles, losing historical reputation data.
+- **Inefficient Monetization**: Community auditors and fact-checkers have no way to monetize high-quality insights and deep analysis.
 
 ## Solution Overview
 
-We have built a decentralized application that acts as a "Truth Layer" for OpenGov. The system fetches live proposals and allows community members to attach verified, immutable reports (metadata, progress updates, audits) to them via the OriginTrail DKG.
+Vouch is a decentralized application that acts as a "Truth Layer" for social media influencers. The system allows community members to submit verified, immutable reports (authenticity checks, engagement analysis, fact-checks) via the OriginTrail DKG.
 
 ### Key Features
 
-- **Automated "Stake-to-Reward" Model**: Replaces manual tipping with a smart contract system. Users stake to submit; upon successful verification and DKG publication, the smart contract automatically refunds the stake and issues a reward from a dedicated OpenGov-funded pool.
-- **Semantic Discovery**: Unlike keyword searches, our DKG integration allows users to query the relationship between entities (e.g., "Show all rejected proposals by Author X that had a title change")
-- **AI Verification**: Automated validation of reports using Large Language Models (LLMs) to prevent spam and ensure relevance.
-- **Monetized Data Access**: Implementation of the x402 protocol allows reporters to monetize high-value, private intelligence (alpha/deep audits) while keeping metadata public.
+- **AI-Powered Verification**: Automated validation of influencer authenticity, bot detection, and engagement quality using Large Language Models (LLMs).
+- **Semantic Discovery**: Query relationships between influencers, topics, and trends using DKG's semantic graph capabilities.
+- **Community Notes System**: Immutable fact-checks and community insights linked to influencer profiles via DKG.
+- **Monetized Premium Insights**: Implementation of the x402 protocol allows reporters to monetize high-value analysis (deep audience insights, competitive intelligence) while keeping basic metadata public.
+- **Cross-Platform Reputation**: Unified trust scores and reputation history that survives platform changes or content deletion.
 
 ## The Three-Layer Architecture
 
@@ -35,21 +36,22 @@ This project strictly adheres to the hackathon's architectural requirements, ens
 **Role**: The Verification Agent.
 
 **Implementation**: 
-- When a user submits a report, a backend AI agent (powered by ChatGPT/OpenAI) intercepts the data
-- The agent analyzes the JSON-LD content against the Parent Proposal to verify legitimacy and context
-- Verification includes checking relevance, accuracy, and preventing spam submissions
+- When a user submits an influencer report or community note, a backend AI agent (powered by ChatGPT/OpenAI) intercepts the data
+- The agent analyzes content for authenticity, bot activity detection, engagement quality, and relevance
+- Verification includes checking influencer profile consistency, engagement patterns, and content quality
 
 **Function**: 
-- Acts as a gatekeeper, ensuring only high-quality, relevant knowledge assets are published to the DKG
-- Effectively "reasons" over the data before it becomes permanent
-- Provides confidence scores and reasoning for verification decisions
+- Acts as a gatekeeper, ensuring only high-quality, verified knowledge assets are published to the DKG
+- Provides confidence scores for authenticity, engagement quality, and trustworthiness
+- Generates actionable insights about influencer performance and audience demographics
+- Detects anomalies and potential fraud indicators
 
-**Synergy**: This agent acts as a gatekeeper, ensuring only high-quality, relevant knowledge assets are published to the DKG, effectively "reasoning" over the data before it becomes permanent.
+**Synergy**: This agent ensures data quality before publication, creating a trusted knowledge base that other agents can reliably query and reason over.
 
 **Technical Implementation**:
-- AI verification service validates report content against proposal data
-- Confidence scoring system (0-1 scale) with configurable threshold
-- Automatic rejection of low-quality or irrelevant submissions
+- AI verification service validates influencer data and community notes
+- Confidence scoring system (0-100 scale) for authenticity, engagement, and trust
+- Automatic flagging of suspicious patterns (bot activity, fake engagement)
 - Detailed reasoning provided for verification decisions
 
 ### Layer 2: Knowledge Layer (OriginTrail DKG)
@@ -57,16 +59,16 @@ This project strictly adheres to the hackathon's architectural requirements, ens
 **Role**: The Connective Tissue.
 
 **Implementation**: 
-- Utilizes the DKG Edge Node (Hard Requirement) to ingest and publish reports
-- Converts user reports into JSON-LD (Linked Data) format
-- Automatically appends Parent Proposal URI to reports, creating permanent graph links
+- Utilizes the DKG Edge Node to ingest and publish influencer profiles, community notes, and analytics
+- Converts user submissions into JSON-LD (Linked Data) format with proper schema.org vocabularies
+- Creates semantic links between influencers, topics, trends, and community notes
 
 **Data Structure**:
-- **Entities**: Proposals are mapped as parent nodes with unique UALs (Universal Asset Locators)
-- **Assets**: User reports are converted into JSON-LD with proper schema.org and custom vocabularies
-- **Linking**: Automatic parent-child relationships via `schema:about` and `schema:isPartOf` properties
+- **Entities**: Influencer profiles are mapped as parent nodes with unique UALs (Universal Asset Locators)
+- **Assets**: Community notes, fact-checks, and analytics are converted into JSON-LD with proper schemas
+- **Linking**: Automatic relationships via `schema:about`, `schema:author`, and custom `ot:` properties
 
-**Result**: A global, verifiable graph of governance history that survives UI changes or forum deletions.
+**Result**: A global, verifiable graph of influencer reputation and community insights that survives platform changes or content deletion.
 
 **Technical Implementation**:
 - DKG Edge Node integration for asset publication
@@ -76,10 +78,11 @@ This project strictly adheres to the hackathon's architectural requirements, ens
 - Blockchain anchoring on NeuroWeb/Polkadot with cryptographic timestamps
 
 **Query Capabilities**:
-- Semantic queries across proposal relationships
-- Historical tracking of proposal changes
-- Reporter reputation graphs
-- Cross-proposal pattern analysis
+- Semantic queries across influencer relationships
+- Historical tracking of reputation changes
+- Community note aggregation and verification
+- Cross-platform influencer analysis
+- Trend detection and pattern analysis
 
 ### Layer 3: Trust Layer (Incentives, x402 & Smart Contracts)
 
@@ -88,28 +91,28 @@ This project strictly adheres to the hackathon's architectural requirements, ens
 **Implementation**:
 
 1. **Staking for Quality**: 
-   - Users must sign a transaction and stake tokens to submit a report
-   - Economic barrier prevents spam and ensures commitment
-   - Staking amount calculated based on data size
+   - Users can stake tokens to submit premium reports or community notes
+   - Economic barrier ensures commitment and quality
+   - Staking amount calculated based on data size and report type
 
-2. **Automated Reward Pool**: 
-   - Upon successful DKG publication, a smart contract is triggered
-   - Validates the publication event and automatically executes a transaction
-   - Refunds user's stake + distributes reward to the original signing wallet
+2. **Automated Reward System**: 
+   - Upon successful DKG publication and verification, rewards are distributed
+   - Community upvotes and verification status influence reward amounts
+   - Automated distribution reduces friction for contributors
 
-3. **Sustainable Funding**: 
-   - System designed to connect to a dedicated OpenGov bounty/pool
-   - Automates the "tipping" process without requiring manual administrative votes
-   - Reduces friction for community reporting
-
-4. **x402 Protocol Integration**: 
-   - For premium reports (deep audits), utilizes x402 to gate content
+3. **x402 Protocol Integration**: 
+   - For premium insights (deep audience analysis, competitive intelligence), utilizes x402 to gate content
    - Allows direct peer-to-peer monetization of high-value data
-   - Public metadata remains accessible, private content requires payment
+   - Public metadata remains accessible, private/premium content requires payment
    - Automatic payment verification and access granting
 
+4. **Reputation System**: 
+   - Contributors build reputation through verified submissions
+   - Trust scores influence visibility and rewards
+   - Historical reputation survives across sessions
+
 **Technical Implementation**:
-- Smart contract integration for stake management
+- Smart contract integration for stake management (future)
 - Automated reward distribution upon DKG confirmation
 - x402 middleware for payment verification
 - Wallet signature verification for authentication
@@ -118,65 +121,55 @@ This project strictly adheres to the hackathon's architectural requirements, ens
 ## Technical Implementation & User Flow
 
 ### Data Ingestion
-- The app fetches all live Polkadot OpenGov proposals (1,700+) and displays them via a web UI
-- Real-time synchronization with Polkadot chain state
-- Proposal metadata extraction and normalization
+- Users can search for influencers by handle, name, or platform
+- System queries DKG for existing influencer profiles
+- Real-time synchronization with social media platforms (via APIs)
 
-### Report Construction
-1. User selects a proposal from the interface
-2. User inputs report data in JSON-LD format (with validation)
+### Report/Note Submission
+1. User searches for or selects an influencer
+2. User submits community note or analysis in JSON-LD format (with validation)
 3. User connects wallet for authentication
 4. System validates JSON-LD structure and required fields
 
-### The Trust Check (Staking)
-1. System calculates a staking fee based on data size
-2. Auto-Wallet Signing: The user approves the transaction to stake tokens for the submission
-3. Transaction is signed and submitted to the blockchain
-
 ### Agent Verification
 1. Backend sends the payload to the AI Agent
-2. Agent verifies the report relates to the proposal ID
-3. Agent checks content quality, relevance, and accuracy
+2. Agent verifies influencer authenticity, engagement quality, and content relevance
+3. Agent checks for bot activity, fake engagement, and suspicious patterns
 4. Verification result (approved/rejected) with confidence score and reasoning
 
 ### DKG Publication
 1. If verified, the DKG Edge Node publishes the asset to the network
 2. The asset is anchored on the blockchain (NeuroWeb/Polkadot) with a cryptographic timestamp
 3. UAL (Universal Asset Locator) is generated and stored
-4. Parent-child relationships are established in the knowledge graph
+4. Relationships are established in the knowledge graph (influencer → notes → insights)
 
-### Automated Reward Trigger
-1. Once the DKG confirms publication, the backend triggers the Reward Smart Contract
-2. The contract sends Stake + Reward back to the user's wallet
-3. Transaction hash is recorded for transparency
-
-### Consumption (x402)
-1. Consumers view the public graph and metadata
-2. If they wish to view "Private" content, the x402 gateway requests a micropayment
-3. Payment is verified on-chain
-4. Access is granted and content is unlocked
+### Premium Access (x402)
+1. Consumers view public metadata and basic insights
+2. If they wish to view premium content, the x402 gateway requests a micropayment
+3. Payment is verified on-chain via x402 facilitator
+4. Access is granted and premium content is unlocked
 
 ## Impact & Strategic Alignment
 
-This project directly addresses the "Wild Card" challenge by leveraging the 3 core layers to solve a specific, high-value problem in the Polkadot ecosystem.
+This project directly addresses the hackathon challenge by leveraging the 3 core layers to solve a specific, high-value problem in social media and influencer marketing.
 
-### For Polkadot
-- Creates a permanent, uncensorable reputation history for proposers
-- Secures the $100M treasury against repeat bad actors
-- Enables transparent governance decision-making
-- Provides historical audit trail for all proposals
+### For Users
+- Transparent influencer verification and authenticity checks
+- Community-driven fact-checking and reputation building
+- Access to premium insights via x402 payments
+- Immutable reputation history that survives platform changes
 
-### For Reporters
-- Provides a monetization channel (via x402) for governance auditors who currently work for free
-- Incentivizes higher-quality due diligence
+### For Contributors
+- Monetization channel (via x402) for high-quality analysis and fact-checking
 - Automated reward system reduces friction
 - Reputation building through verified contributions
+- Direct access to DKG for querying and analysis
 
-### For AI
-- Enables future autonomous agents to query the DKG to "vote" on proposals based on the historical reliability of the proposer
-- Enables AI-driven governance assistance
+### For AI Agents
+- Enables autonomous agents to query DKG for influencer authenticity
+- Supports AI-driven content recommendations based on trust scores
 - Provides structured data for machine learning models
-- Supports automated proposal analysis and recommendations
+- Enables automated trend detection and pattern analysis
 
 ## Technology Stack
 
@@ -189,30 +182,30 @@ This project directly addresses the "Wild Card" challenge by leveraging the 3 co
 
 ### Backend
 - **Node.js/Express**: API server
-- **SQLite**: Local database for proposals and reports
+- **SQLite**: Local database for influencers and notes
 - **OpenAI API**: AI verification agent
 - **DKG Edge Node**: Knowledge graph publication
 - **x402 Protocol**: Payment gateway integration
 
 ### Blockchain
-- **Polkadot/Substrate**: Governance proposal data source
 - **OriginTrail Parachain**: DKG blockchain anchoring
-- **Smart Contracts**: Stake and reward automation
+- **x402 Facilitator**: Payment processing
+- **Smart Contracts**: Stake and reward automation (future)
 
 ## Project Structure
 
 ```
-Polkadot-sHLOK/
+Vouch/
 ├── src/
 │   ├── app/                    # Next.js app router pages
 │   │   ├── agents/            # Agent query and submission page
 │   │   ├── trends/            # Trends and analytics page
-│   │   └── components/       # Page components
-│   ├── components/           # Reusable UI components
-│   │   └── resources/        # JSON-LD resources and examples
-│   └── providers/            # React context providers
-├── resources/                # Additional resources and schemas
-└── README.md                 # This file
+│   │   └── components/        # Page components
+│   ├── components/            # Reusable UI components
+│   │   └── resources/         # JSON-LD resources and examples
+│   └── providers/             # React context providers
+├── resources/                 # Additional resources and schemas
+└── README.md                  # This file
 ```
 
 ## Getting Started
@@ -220,7 +213,7 @@ Polkadot-sHLOK/
 ### Prerequisites
 - Node.js 18+ and npm/yarn
 - DKG Edge Node running (for DKG publication)
-- Wallet with testnet tokens (for staking/rewards)
+- Wallet with testnet tokens (for x402 payments)
 - OpenAI API key (for AI verification)
 
 ### Installation
@@ -261,43 +254,43 @@ API_URL=http://localhost:3001
 
 ## Usage
 
-### Submitting a Report
+### Submitting a Community Note
 
-1. Navigate to a proposal page
-2. Click "Submit Report"
-3. Fill in JSON-LD data (or use example template)
-4. Connect wallet and approve staking transaction
+1. Navigate to an influencer profile
+2. Click "Add Community Note"
+3. Fill in your fact-check or insight
+4. Connect wallet and sign message
 5. Wait for AI verification
-6. Report is automatically published to DKG upon approval
-7. Receive stake refund + reward
+6. Note is automatically published to DKG upon approval
+7. Receive UAL for your submission
 
 ### Querying Agents via x402
 
 1. Navigate to Agents page
-2. Enter query or search term
+2. Enter influencer handle or search query
 3. For premium insights, connect wallet
 4. Approve x402 payment if required
 5. View full analysis and insights
 
-### Accessing Premium Reports
+### Accessing Premium Insights
 
-1. Find premium report in proposal or agent page
-2. Click "View Premium Content"
+1. Find premium insight on influencer profile
+2. Click "Pay & Access"
 3. Connect wallet if not already connected
 4. Approve x402 payment transaction
 5. Access granted automatically upon payment verification
 
 ## Future Work
 
-- **Automated AI Voting**: Agents that not only verify reports but cast votes on proposals based on DKG data trends
-- **Cross-Chain Reputation**: Extending the schema to track reputation across other Parachains
-- **Advanced Analytics**: Dashboard for proposal success rates, reporter reputation scores, and ecosystem health metrics
-- **Mobile App**: Native mobile application for on-the-go governance participation
-- **Integration with Polkassembly**: Direct integration with existing governance platforms
+- **Cross-Platform Integration**: Direct API integration with Twitter, Instagram, YouTube, TikTok
+- **Advanced Analytics Dashboard**: Real-time trend detection and influencer performance metrics
+- **Mobile App**: Native mobile application for on-the-go verification
+- **Reputation Marketplace**: Buy/sell reputation scores and verified badges
+- **Automated Monitoring**: AI agents that continuously monitor and update influencer profiles
 
 ## Contributing
 
-This project is built for the Polkadot hackathon. Contributions, feedback, and suggestions are welcome!
+This project is built for the Polkadot/OriginTrail hackathon. Contributions, feedback, and suggestions are welcome!
 
 ## License
 
@@ -306,6 +299,6 @@ This project is built for the Polkadot hackathon. Contributions, feedback, and s
 ## Acknowledgments
 
 - OriginTrail for the DKG infrastructure
-- Polkadot ecosystem for governance data
-- OpenAI for AI verification capabilities
 - x402 protocol for payment integration
+- OpenAI for AI verification capabilities
+- Polkadot ecosystem for blockchain infrastructure

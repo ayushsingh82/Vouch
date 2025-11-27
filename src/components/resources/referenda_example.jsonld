@@ -1,0 +1,61 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "ot": "https://schema.origintrail.io/",
+    "vouch": "https://vouch.app/schema/"
+  },
+  "@type": ["schema:Person", "ot:InfluencerProfile", "vouch:VerifiedInfluencer"],
+  "@id": "vouch:influencer:gavinwood",
+  "schema:name": "Gavin Wood",
+  "schema:alternateName": "@gavofyork",
+  "schema:identifier": {
+    "@type": "schema:PropertyValue",
+    "schema:propertyID": "twitter_handle",
+    "schema:value": "gavofyork"
+  },
+  "schema:url": "https://twitter.com/gavofyork",
+  "schema:jobTitle": "Co-Founder of Polkadot, Parity Technologies",
+  "schema:worksFor": {
+    "@type": "schema:Organization",
+    "schema:name": "Parity Technologies"
+  },
+  "ot:platform": "twitter",
+  "ot:metrics": {
+    "@type": "ot:InfluencerMetrics",
+    "schema:interactionStatistic": [
+      {
+        "@type": "schema:InteractionCounter",
+        "schema:interactionType": {"@type": "schema:FollowAction"},
+        "schema:userInteractionCount": 250000
+      }
+    ],
+    "ot:engagementRate": 9.2,
+    "ot:trendScore": 98,
+    "ot:growthRate": 15.3,
+    "ot:category": "crypto",
+    "ot:verified": true,
+    "ot:expertiseLevel": "founder",
+    "ot:ecosystem": "Polkadot"
+  },
+  "ot:aiVerification": {
+    "@type": "ot:AIVerification",
+    "ot:authenticityScore": 99,
+    "ot:botActivityLikelihood": 1,
+    "ot:audienceCredibility": 97,
+    "ot:verificationStatus": "verified",
+    "ot:confidence": 0.99,
+    "ot:verifiedAt": "2025-01-25T12:00:00Z"
+  },
+  "vouch:trustScore": 99,
+  "vouch:reputationHistory": [
+    {
+      "@type": "vouch:ReputationEvent",
+      "vouch:timestamp": "2025-01-25T12:00:00Z",
+      "vouch:score": 99,
+      "vouch:reason": "Verified co-founder with exceptional technical credibility"
+    }
+  ],
+  "schema:dateCreated": "2025-01-25T12:00:00Z",
+  "schema:dateModified": "2025-01-25T12:00:00Z"
+}
+
