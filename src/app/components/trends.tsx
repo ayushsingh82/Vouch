@@ -216,7 +216,7 @@ export default function TrendsPage() {
             <span className="text-black font-bold">Sort by:</span>
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
+              onChange={(e) => setSortBy(e.target.value as 'trendScore' | 'change' | 'followers')}
               className="border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] px-4 py-2 rounded-lg text-black font-medium focus:outline-none focus:shadow-[2px_2px_0_0_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px] transition-all"
               style={{ backgroundColor: '#B2DBAF' }}
             >
@@ -237,7 +237,7 @@ export default function TrendsPage() {
 
         {/* Trending Influencers Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sortedInfluencers.map((influencer, index) => (
+          {sortedInfluencers.map((influencer) => (
             <Link
               key={influencer.id}
               href={`/agents?search=${encodeURIComponent(influencer.handle)}`}

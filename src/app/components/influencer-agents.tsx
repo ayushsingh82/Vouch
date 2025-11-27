@@ -275,11 +275,6 @@ export default function InfluencerAgents() {
     await queryAgent(searchQuery, false);
   };
 
-  const handlePremiumQuery = async () => {
-    if (!queryForm.query.trim()) return;
-    await queryAgent(queryForm.query, true);
-  };
-
   const handleAccessPremium = async (insightId: string, price: number) => {
     if (!isConnected || !address) {
       alert('Please connect your wallet to access premium insights');
@@ -375,7 +370,7 @@ export default function InfluencerAgents() {
       if (queryForm.jsonldData) {
         try {
           parsedJsonld = JSON.parse(queryForm.jsonldData);
-        } catch (error) {
+        } catch {
           alert('Invalid JSON-LD format');
           setIsAnalyzing(false);
           return;
@@ -498,7 +493,7 @@ export default function InfluencerAgents() {
                   <label className="block text-black font-bold mb-2">Query Type</label>
                   <select
                     value={queryForm.queryType}
-                    onChange={(e) => setQueryForm({ ...queryForm, queryType: e.target.value as any })}
+                    onChange={(e) => setQueryForm({ ...queryForm, queryType: e.target.value as 'influencer' | 'proposal' | 'trend' | 'custom' })}
                     className="w-full border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] px-4 py-2 rounded-lg text-black font-medium"
                     style={{ backgroundColor: '#FFD1B3' }}
                   >

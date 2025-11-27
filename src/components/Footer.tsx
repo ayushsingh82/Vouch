@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function Footer() {
   return (
     <footer className="bg-white border-t-2 border-black shadow-[0_-4px_0_0_rgba(0,0,0,1)] mt-auto">
