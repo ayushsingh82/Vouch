@@ -192,20 +192,7 @@ This project directly addresses the hackathon challenge by leveraging the 3 core
 - **x402 Facilitator**: Payment processing
 - **Smart Contracts**: Stake and reward automation (future)
 
-## Project Structure
-
-```
-Vouch/
-├── src/
-│   ├── app/                    # Next.js app router pages
-│   │   ├── agents/            # Agent query and submission page
-│   │   ├── trends/            # Trends and analytics page
-│   │   └── components/        # Page components
-│   ├── components/            # Reusable UI components
-│   │   └── resources/         # JSON-LD resources and examples
-│   └── providers/             # React context providers
-├── resources/                 # Additional resources and schemas
-└── README.md                  # This file
+        # This file
 ```
 
 ## Getting Started
