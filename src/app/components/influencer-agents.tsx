@@ -64,6 +64,7 @@ interface AgentQueryForm {
 }
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+const DEMO_MODE = process.env.NEXT_PUBLIC_DEMO_MODE === 'true' || false; // Set to true for demo without backend
 
 export default function InfluencerAgents() {
   const { isConnected, address } = useAccount();
@@ -352,8 +353,8 @@ export default function InfluencerAgents() {
       return;
     }
 
-    if (!queryForm.query.trim() && !queryForm.jsonldData?.trim()) {
-      alert('Please provide either a query or JSON-LD data');
+    if (!queryForm.jsonldData?.trim()) {
+      alert('JSON-LD data is required. Please provide valid JSON-LD data.');
       return;
     }
 
@@ -365,17 +366,77 @@ export default function InfluencerAgents() {
         await generateAuthMessage();
       }
 
-      // Validate JSON-LD if provided
+      // Validate JSON-LD (required) with detailed checks
       let parsedJsonld = null;
-      if (queryForm.jsonldData) {
-        try {
-          parsedJsonld = JSON.parse(queryForm.jsonldData);
-        } catch {
-          alert('Invalid JSON-LD format');
-          setIsAnalyzing(false);
-          return;
-        }
+      if (!queryForm.jsonldData || !queryForm.jsonldData.trim()) {
+        alert('❌ JSON-LD data is required. Please provide valid JSON-LD data.');
+        setIsAnalyzing(false);
+        return;
       }
+      
+      // Validate JSON syntax
+      try {
+        parsedJsonld = JSON.parse(queryForm.jsonldData);
+      } catch (parseError) {
+        const errorMsg = parseError instanceof Error ? parseError.message : 'Parse error';
+        alert(`❌ Invalid JSON format:\n\n${errorMsg}\n\nPlease check:\n- All quotes are properly closed\n- No trailing commas\n- Valid JSON syntax\n\nExample format:\n{\n  "@context": {...},\n  "@type": "..."\n}`);
+        setIsAnalyzing(false);
+        return;
+      }
+      
+      // Validate required JSON-LD fields
+      if (!parsedJsonld['@context']) {
+        alert('❌ Invalid JSON-LD: Missing required field "@context"\n\nJSON-LD must include:\n- "@context": defines the vocabulary\n- "@type": defines the entity type\n\nExample:\n{\n  "@context": {\n    "schema": "https://schema.org/"\n  },\n  "@type": "schema:Person"\n}');
+        setIsAnalyzing(false);
+        return;
+      }
+      
+      if (!parsedJsonld['@type']) {
+        alert('❌ Invalid JSON-LD: Missing required field "@type"\n\nJSON-LD must include:\n- "@context": defines the vocabulary\n- "@type": defines the entity type\n\nExample:\n{\n  "@context": {\n    "schema": "https://schema.org/"\n  },\n  "@type": "schema:Person"\n}');
+        setIsAnalyzing(false);
+        return;
+      }
+      
+      // Check if @context is an object
+      if (typeof parsedJsonld['@context'] !== 'object') {
+        alert('❌ Invalid JSON-LD: "@context" must be an object\n\nExample:\n"@context": {\n  "schema": "https://schema.org/",\n  "vouch": "https://vouch.app/schema/"\n}');
+        setIsAnalyzing(false);
+        return;
+      }
+      
+      // Check if @type is a string or array
+      if (typeof parsedJsonld['@type'] !== 'string' && !Array.isArray(parsedJsonld['@type'])) {
+        alert('❌ Invalid JSON-LD: "@type" must be a string or array\n\nExample:\n"@type": "schema:Person"\nor\n"@type": ["schema:Person", "vouch:TraderProfile"]');
+        setIsAnalyzing(false);
+        return;
+      }
+      
+      console.log('✅ JSON-LD validation passed:', parsedJsonld);
+
+      // Demo mode: Simulate successful submission without backend
+      if (DEMO_MODE) {
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Generate mock UAL
+        const mockUAL = `did:dkg:otp:20430/0x${Math.random().toString(16).substring(2, 42)}/${Date.now()}`;
+        
+        alert(`✅ Demo Mode: Data submitted successfully!\n\n📋 JSON-LD validated and ready for DKG\n🆔 Mock UAL: ${mockUAL}\n\nNote: This is a demo. In production, this would be published to DKG via backend API.`);
+        
+        setQueryForm({
+          query: '',
+          queryType: 'influencer',
+          isPremium: false,
+          jsonldData: '',
+        });
+        setShowQueryForm(false);
+        setIsAnalyzing(false);
+        return;
+      }
+
+      // Create abort controller for timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
 
       // Submit to agent
       const response = await fetch(`${API_BASE_URL}/api/agents/submit`, {
@@ -394,25 +455,78 @@ export default function InfluencerAgents() {
           isPremium: queryForm.isPremium,
           jsonldData: parsedJsonld,
           wallet: address
-        })
+        }),
+        signal: controller.signal
       });
+      
+      clearTimeout(timeoutId);
 
       if (response.ok) {
         const data = await response.json();
-        alert(`Data submitted successfully! ${data.ual ? `UAL: ${data.ual}` : ''}`);
+        alert(`✅ Data submitted successfully! ${data.ual ? `\nUAL: ${data.ual}` : ''}`);
         setQueryForm({
           query: '',
           queryType: 'influencer',
           isPremium: false,
+          jsonldData: '',
         });
         setShowQueryForm(false);
       } else {
-        const error = await response.json();
-        alert(`Failed to submit: ${error.error || 'Unknown error'}`);
+        let errorMessage = 'Unknown error';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorData.message || `HTTP ${response.status}: ${response.statusText}`;
+        } catch {
+          errorMessage = `HTTP ${response.status}: ${response.statusText}`;
+        }
+        alert(`❌ Failed to submit to DKG:\n${errorMessage}\n\nNote: Make sure the backend API is running at ${API_BASE_URL}`);
       }
     } catch (error) {
       console.error('Error submitting data:', error);
-      alert('Failed to submit data. Please try again.');
+      let errorMsg = 'Unknown error';
+      let detailedHelp = '';
+      
+      if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+        errorMsg = 'Connection Refused - Backend API not reachable';
+        
+        // Offer demo mode as alternative
+        const useDemoMode = confirm(
+          `❌ Backend API not accessible at ${API_BASE_URL}\n\n` +
+          `Your JSON-LD is valid ✅\n\n` +
+          `Would you like to use DEMO MODE?\n` +
+          `(Simulates successful submission for demo purposes)\n\n` +
+          `Click OK for Demo Mode, Cancel to see troubleshooting steps.`
+        );
+        
+        if (useDemoMode) {
+          // Generate mock UAL for demo
+          const mockUAL = `did:dkg:otp:20430/0x${Math.random().toString(16).substring(2, 42)}/${Date.now()}`;
+          alert(`✅ Demo Mode: Data submitted successfully!\n\n📋 JSON-LD validated and ready for DKG\n🆔 Mock UAL: ${mockUAL}\n\nNote: This is a demo. In production, this would be published to DKG via backend API.`);
+          
+          setQueryForm({
+            query: '',
+            queryType: 'influencer',
+            isPremium: false,
+            jsonldData: '',
+          });
+          setShowQueryForm(false);
+          setIsAnalyzing(false);
+          return;
+        }
+        
+        detailedHelp = `\n\n🔧 Troubleshooting Steps:\n\n1. ✅ JSON-LD Format: Valid (checked)\n\n2. Start Backend API:\n   - Navigate to backend directory\n   - Run: npm start or node server.js\n   - Backend should run on: ${API_BASE_URL}\n\n3. Verify API Endpoint:\n   - Ensure route exists: /api/agents/submit\n   - Check backend routes file\n\n4. Check CORS:\n   - Backend must allow: ${typeof window !== 'undefined' ? window.location.origin : 'frontend origin'}\n\n5. Enable Demo Mode:\n   - Set NEXT_PUBLIC_DEMO_MODE=true in .env\n   - Or use demo mode when prompted\n\n6. For Demo:\n   - Your JSON-LD is valid ✅\n   - Copy the JSON-LD data below\n   - Can submit via backend API or DKG directly`;
+      } else if (error instanceof Error) {
+        errorMsg = error.message;
+        if (error.name === 'AbortError' || error.message.includes('aborted')) {
+          errorMsg = 'Request Timeout';
+          detailedHelp = '\n\n⏱️ Request timed out after 10 seconds.\nThe backend may be slow or unresponsive.\n\nTry:\n- Check if backend is processing\n- Increase timeout if needed\n- Check backend logs';
+        }
+      }
+      
+      const jsonldPreview = queryForm.jsonldData ? 
+        `\n\n📋 Your JSON-LD Data (Valid ✅):\n${queryForm.jsonldData.substring(0, 200)}...` : '';
+      
+      alert(`❌ Failed to submit data to DKG\n\nError: ${errorMsg}${detailedHelp}${jsonldPreview}`);
     } finally {
       setIsAnalyzing(false);
     }
@@ -486,7 +600,29 @@ export default function InfluencerAgents() {
         {/* Data Submission Form */}
         {showQueryForm && (
           <div className="border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] rounded-2xl p-8 mb-8" style={{ backgroundColor: '#B2DBAF' }}>
-            <h2 className="text-2xl font-black text-black mb-6">Submit Data to DKG via Agent</h2>
+            <h2 className="text-2xl font-black text-black mb-4">Submit Data to DKG via Agent</h2>
+            <div className="mb-6 p-3 rounded-lg border-2 border-black" style={{ backgroundColor: '#FFD1B3' }}>
+              <p className="text-sm text-black font-semibold mb-1">
+                {DEMO_MODE ? '🎭 Demo Mode Active' : '⚠️ Backend API Required'}
+              </p>
+              <p className="text-xs text-black opacity-80">
+                {DEMO_MODE ? (
+                  <>
+                    Running in demo mode. Submissions will be simulated.
+                    <br />
+                    Set <code className="bg-black text-white px-1 rounded">NEXT_PUBLIC_DEMO_MODE=false</code> to use real backend.
+                  </>
+                ) : (
+                  <>
+                    Make sure the backend API is running at <code className="bg-black text-white px-1 rounded">{API_BASE_URL}</code>
+                    <br />
+                    The backend handles AI verification and DKG publication.
+                    <br />
+                    <span className="text-xs opacity-70">💡 If backend is unavailable, demo mode will be offered on submission.</span>
+                  </>
+                )}
+              </p>
+            </div>
             <form onSubmit={handleSubmitData}>
               <div className="space-y-4">
                 <div>
@@ -517,15 +653,62 @@ export default function InfluencerAgents() {
                 </div>
 
                 <div>
-                  <label className="block text-black font-bold mb-2">JSON-LD Data (Optional)</label>
+                  <label className="block text-black font-bold mb-2">
+                    JSON-LD Data <span className="text-red-600">*</span>
+                  </label>
+                  <div className="mb-2 text-xs text-black opacity-70">
+                    Example for trader: Click to load template
+                  </div>
                   <textarea
                     value={queryForm.jsonldData || ''}
                     onChange={(e) => setQueryForm({ ...queryForm, jsonldData: e.target.value })}
                     placeholder='{"@context": {...}, "@type": "...", ...}'
-                    rows={8}
+                    rows={12}
+                    required
                     className="w-full border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] px-4 py-2 rounded-lg text-black font-mono text-sm"
                     style={{ backgroundColor: '#FFD1B3' }}
                   />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const traderExample = {
+                        "@context": {
+                          "schema": "https://schema.org/",
+                          "ot": "https://schema.origintrail.io/",
+                          "vouch": "https://vouch.app/schema/"
+                        },
+                        "@type": ["schema:Person", "vouch:TraderProfile"],
+                        "@id": `vouch:trader:${Date.now()}`,
+                        "schema:name": queryForm.query || "Crypto Trader",
+                        "schema:jobTitle": "Cryptocurrency Trader",
+                        "schema:description": queryForm.query || "Active trader in cryptocurrency markets",
+                        "vouch:traderProfile": {
+                          "@type": "vouch:TraderMetrics",
+                          "vouch:tradingExperience": "3 years",
+                          "vouch:specialization": ["DeFi", "Arbitrage", "Cross-chain"],
+                          "vouch:preferredChains": ["Base", "Arbitrum"],
+                          "vouch:tradingVolume": "High",
+                          "vouch:riskTolerance": "Moderate"
+                        },
+                        "ot:verification": {
+                          "@type": "ot:AIVerification",
+                          "ot:verifiedAt": new Date().toISOString(),
+                          "ot:confidence": 0.85
+                        },
+                        "schema:identifier": {
+                          "@type": "schema:PropertyValue",
+                          "schema:propertyID": "wallet_address",
+                          "schema:value": address || "0x..."
+                        },
+                        "schema:dateCreated": new Date().toISOString()
+                      };
+                      setQueryForm({ ...queryForm, jsonldData: JSON.stringify(traderExample, null, 2) });
+                    }}
+                    className="mt-2 border-2 border-black shadow-[2px_2px_0_0_rgba(0,0,0,1)] px-4 py-2 rounded-lg text-sm font-bold text-black hover:shadow-[1px_1px_0_0_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all duration-200"
+                    style={{ backgroundColor: '#FFD1B3' }}
+                  >
+                    Load Trader Template
+                  </button>
                 </div>
 
                 <div className="flex items-center gap-2">
